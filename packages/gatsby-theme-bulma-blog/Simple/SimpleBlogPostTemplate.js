@@ -1,5 +1,4 @@
 import React from "react"
-import moment from "moment"
 import SimpleChrome from "./SimpleChrome"
 
 class SimpleBlogPostTemplate extends React.Component {

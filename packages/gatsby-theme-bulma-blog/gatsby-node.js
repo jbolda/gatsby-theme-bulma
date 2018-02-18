@@ -1,3 +1,4 @@
+import _Promise from "babel-runtime/core-js/promise";
 const path = require(`path`);
 
 exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
@@ -26,7 +27,7 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators;
 
-  return new Promise((resolve, reject) => {
+  return new _Promise((resolve, reject) => {
     const pages = [];
     const mdBlogPost = path.resolve(`node_modules/gatsby-theme-bulma-blog/Simple/SimpleBlogPostTemplate.js`);
 

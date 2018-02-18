@@ -1,7 +1,7 @@
 {
   "name": "gatsby-theme-bulma-blog",
   "author": "Jacob Bolda <me@jacobbolda.com>",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0-alpha.4",
   "description": "",
   "scripts": {
     "build": "babel src --out-dir . --ignore __tests__",

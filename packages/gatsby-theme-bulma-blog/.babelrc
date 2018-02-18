@@ -1,7 +1,10 @@
 {
   "sourceMaps": true,
-  "presets": ["react"],
-  "plugins": ["babel-plugin-transform-object-rest-spread"],
+  "presets": ["babel-preset-react"],
+  "plugins": [
+    "babel-plugin-transform-object-rest-spread",
+    "babel-plugin-transform-runtime"
+  ],
   "ignore": ["dist"],
   "env": {
     "production": {

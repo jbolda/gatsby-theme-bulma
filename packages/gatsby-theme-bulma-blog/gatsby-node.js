@@ -32,7 +32,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
   return new Promise((resolve, reject) => {
     const pages = []
-    const mdBlogPost = path.resolve(`./plugins/gatsby-theme-bulma-blog/Simple/SimpleBlogPostTemplate.js`)
+    const mdBlogPost = path.resolve(`./Simple/SimpleBlogPostTemplate.js`)
 
     // Query for all markdown "nodes" and for the slug we previously created.
     resolve(
@@ -75,8 +75,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             })
           }
         })
-
-
 
         return
       })

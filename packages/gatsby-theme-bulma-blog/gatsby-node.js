@@ -32,7 +32,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
   return new Promise((resolve, reject) => {
     const pages = []
-    const mdBlogPost = path.resolve(`./Simple/SimpleBlogPostTemplate.js`)
+    const mdBlogPost = path.resolve(`node_modules/gatsby-theme-bulma-blog/Simple/SimpleBlogPostTemplate.js`)
 
     // Query for all markdown "nodes" and for the slug we previously created.
     resolve(

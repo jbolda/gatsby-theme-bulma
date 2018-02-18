@@ -1,24 +1,24 @@
-import React from "react";
-import SimpleChrome from "./SimpleChrome";
+import React from "react"
+import SimpleChrome from "./SimpleChrome"
 
 class SimpleBlogPostTemplate extends React.Component {
   render() {
-    const { html, frontmatter } = this.props.data.post;
+    const {html, frontmatter} = this.props.data.post
 
-    return React.createElement(
-      SimpleChrome,
-      {
-        post: this.props.data.post,
-        hero: this.props.data.hero,
-        sitemetadata: this.props.data.site.siteMetadata,
-        location: this.props.location
-      },
-      React.createElement("div", { className: "content", dangerouslySetInnerHTML: { __html: html } })
-    );
+    return (
+      <SimpleChrome
+        post={this.props.data.post}
+        hero={this.props.data.hero}
+        sitemetadata={this.props.data.site.siteMetadata}
+        location={this.props.location}
+        >
+        <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
+      </SimpleChrome>
+    )
   }
 }
 
-export default SimpleBlogPostTemplate;
+export default SimpleBlogPostTemplate
 
 export const pageQuery = graphql`
   query SimpleBlogPostTemplatePostBySlug($slug: String!) {
@@ -45,4 +45,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

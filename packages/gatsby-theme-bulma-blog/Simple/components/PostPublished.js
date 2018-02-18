@@ -1,28 +1,38 @@
-import React from "react"
+import React from "react";
 
 class PostPublished extends React.Component {
   render() {
-    const {frontmatter} = this.props;
+    const { frontmatter } = this.props;
 
     if (frontmatter.updated == null) {
-      var published = (
-        <div className="date-published">
-            <em>{`published ${frontmatter.written}`}</em>
-        </div>
-      )
+      var published = React.createElement(
+        "div",
+        { className: "date-published" },
+        React.createElement(
+          "em",
+          null,
+          `published ${frontmatter.written}`
+        )
+      );
     } else {
-      var published = (
-        <div className="date-published">
-            <em>
-              {`originally published ${frontmatter.written}
-              and updated ${frontmatter.updated}`}
-            </em>
-        </div>
-      )
+      var published = React.createElement(
+        "div",
+        { className: "date-published" },
+        React.createElement(
+          "em",
+          null,
+          `originally published ${frontmatter.written}
+              and updated ${frontmatter.updated}`
+        )
+      );
     }
 
-    return <div className="container content">{published}</div>
+    return React.createElement(
+      "div",
+      { className: "container content" },
+      published
+    );
   }
 }
 
-export default PostPublished
+export default PostPublished;

@@ -1,0 +1,19 @@
+{
+  "name": "gatsby-theme-bulma-blog",
+  "version": "1.0.0-alpha.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jbolda/gatsby-theme-bulma-blog.git"
+  },
+  "keywords": ["gatsby","theme"],
+  "author": "Jacob Bolda <me@jacobbolda.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jbolda/gatsby-theme-bulma-blog/issues"
+  },
+  "homepage": "https://github.com/jbolda/gatsby-theme-bulma-blog#readme"
+}

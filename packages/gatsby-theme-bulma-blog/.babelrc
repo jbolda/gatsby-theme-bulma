@@ -1,6 +1,20 @@
 {
   "sourceMaps": true,
-  "presets": ["babel-preset-react"],
+  "presets": [
+    "babel-preset-env",
+    "babel-preset-stage-0",
+    "babel-preset-react",
+    [
+      "env",
+      {"targets": {
+          "browsers": ["last 4 versions", "safari >= 7", "ie >= 9"],
+          "loose": true,
+          "debug": false,
+          "useBuiltIns": true,
+          "modules": "commonjs"
+      }}
+    ]
+  ],
   "plugins": [
     "babel-plugin-transform-object-rest-spread",
     "babel-plugin-transform-runtime"

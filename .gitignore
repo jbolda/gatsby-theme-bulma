@@ -1,3 +1,21 @@
+# Logs
+logs
+*.log
+
+# Dependency directory
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
-yarn.lock
-.vscode
+dist
+
+# IDE specific
+.idea/
+.vscode/
+
+# Gatsby Specific
+public/
+.cache/
+.netlify
+
+# General
+.DS_Store
+.serverless/

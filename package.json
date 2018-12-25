@@ -3,29 +3,22 @@
   "author": "Jacob Bolda <me@jacobbolda.com>",
   "version": "1.0.0-alpha.2",
   "description": "",
-  "scripts": {
-    "build": "babel src --out-dir . --ignore __tests__",
-    "prepublish": "cross-env NODE_ENV=production npm run build",
-    "watch": "babel -w src --out-dir . --ignore __tests__"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jbolda/gatsby-theme-bulma.git"
   },
-  "keywords": ["gatsby","theme"],
+  "keywords": [
+    "gatsby",
+    "theme"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jbolda/gatsby-theme-bulma/issues"
   },
   "homepage": "https://github.com/jbolda/gatsby-theme-bulma#readme",
-  "dependencies": {},
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "cross-env": "^5.0.5"
-  }
+  "dependencies": {
+    "debug": "^4.1.1"
+  },
+  "devDependencies": {}
 }

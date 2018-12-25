@@ -1,15 +1,13 @@
-@import '~normalize.css';
+@import "~normalize.css";
 
-@import '~bulma/sass/utilities/initial-variables';
-@import '~bulma/sass/utilities/functions';
-// Override variables here
-// You can add new ones or update existing ones:
+@import "~bulma/sass/utilities/initial-variables";
+@import "~bulma/sass/utilities/functions";
 
 $P1: #000000;
-$P2: #192C3B;
-$P3: #52777D;
-$P4: #9EBBA9;
-$P5: #F4F4F4;
+$P2: #192c3b;
+$P3: #52777d;
+$P4: #9ebba9;
+$P5: #f4f4f4;
 
 $primary: $P1;
 $light: $P5;
@@ -21,36 +19,171 @@ $body-background-color: $P5;
 $navbar-background-color: $P2;
 $navbar-item-color: $P5;
 $footer-background-color: $P2;
-$family-sans-serif: 'Varela Round', sans-serif;
-$family-serif: 'Lora', serif; // Add a serif family
-$family-primary: $family-sans-serif;
 
 $secondary: $P2;
 $secondary-invert: findColorInvert($secondary);
 $thirdary: $P3;
 $thirdary-invert: findColorInvert($thirdary);
+$fourthary: $P4;
+$fourthary-invert: findColorInvert($fourthary);
+$fifthary: $P5;
+$fifthary-invert: findColorInvert($fifthary);
 
-
-@import '~bulma/sass/utilities/derived-variables.sass';
+@import "~bulma/sass/utilities/derived-variables.sass";
 $addColors: (
-  "secondary":($secondary, $secondary-invert),
-  "thirdary":($thirdary, $thirdary-invert)
+  "secondary": (
+    $secondary,
+    $secondary-invert
+  ),
+  "thirdary": (
+    $thirdary,
+    $thirdary-invert
+  ),
+  "fourthary": (
+    $fourthary,
+    $fourthary-invert
+  ),
+  "fifthary": (
+    $fifthary,
+    $fifthary-invert
+  )
 );
 $colors: map-merge($colors, $addColors);
 
-@import '~bulma';
-@import '~prismjs/themes/prism-twilight';
+section[class*="section is-primary"] {
+  background-color: $P1;
+}
 
-.token.number {
-    background-color: inherit;
-    font-size: inherit;
-    display: inline-block;
-    height: inherit;
-    min-width: inherit;
-    margin-right: 0px;
-    padding: 0px;
+section[class*="section is-secondary"] {
+  background-color: $P2;
+}
+
+section[class*="section is-thirdary"] {
+  background-color: $P3;
+}
+
+section[class*="section is-fourthary"] {
+  background-color: $P4;
+}
+
+section[class*="section is-fifthary"] {
+  background-color: $P5;
 }
 
 .copyright {
-    color: $navbar-item-color
+  color: $navbar-item-color;
+}
+
+@import "~bulma";
+@import "~prismjs/themes/prism-twilight";
+
+.token.number {
+  background-color: inherit;
+  font-size: inherit;
+  display: inline-block;
+  height: inherit;
+  min-width: inherit;
+  margin-right: 0px;
+  padding: 0px;
+}
+
+// mixin
+@mixin angle($pseudo, $flip: false, $angle: 1.5deg) {
+  // Possible values for $pseudo are: before, after, both
+  @if $pseudo == "before" or $pseudo == "after" or $pseudo == "both" {
+    position: relative;
+    z-index: 1;
+    $selector: if($pseudo == "both", "&:before,&:after", "&:#{$pseudo}");
+
+    #{$selector} {
+      background: inherit;
+      content: "";
+      display: block;
+      height: 50%;
+      left: 0;
+      position: absolute;
+      right: 0;
+      z-index: -1;
+      -webkit-backface-visibility: hidden; // for Chrome Windows
+    }
+
+    @if $pseudo == "before" {
+      #{$selector} {
+        top: 0;
+
+        @if $flip {
+          transform: skewY($angle * -1);
+          transform-origin: 0 0;
+        } @else {
+          transform: skewY($angle);
+          transform-origin: 100% 0;
+        }
+      }
+    }
+
+    @if $pseudo == "after" {
+      #{$selector} {
+        bottom: 0;
+
+        @if $flip {
+          transform: skewY($angle);
+          transform-origin: 0 100%;
+        } @else {
+          transform: skewY($angle * -1);
+          transform-origin: 100%;
+        }
+      }
+    }
+
+    @if $pseudo == "both" {
+      &:before {
+        top: 0;
+
+        @if $flip {
+          transform: skewY($angle * -1);
+          transform-origin: 0 0;
+        } @else {
+          transform: skewY($angle);
+          transform-origin: 100% 0;
+        }
+      }
+
+      &:after {
+        bottom: 0;
+
+        @if $flip {
+          transform: skewY($angle);
+          transform-origin: 0 0;
+        } @else {
+          transform: skewY($angle * -1);
+          transform-origin: 100%;
+        }
+      }
+    }
+  }
+}
+
+// slanted edges here
+.edge--bottom {
+  @include angle(after);
+}
+
+.edge--bottom--reverse {
+  @include angle(after, true);
+}
+
+.edge--top {
+  @include angle(before);
+}
+
+.edge--top--reverse {
+  @include angle(before, true);
+}
+
+.edge--both {
+  @include angle(both);
+}
+
+.edge--both--reverse {
+  @include angle(both, true);
 }

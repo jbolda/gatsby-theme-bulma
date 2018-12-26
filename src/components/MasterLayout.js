@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
-import "./css/base.scss";
+import "../css/base.scss";
 
 class MasterLayout extends React.Component {
   render() {

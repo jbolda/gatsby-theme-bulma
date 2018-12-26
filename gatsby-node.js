@@ -1,4 +1,5 @@
 const Debug = require('debug')
+const path = require('path')
 
 /**
  * When shipping NPM modules, they typically need to be either

@@ -1,10 +1,7 @@
 {
   "name": "gatsby-theme-bulma",
   "author": "Jacob Bolda <me@jacobbolda.com>",
-  "scripts": {
-    "lerna": "lerna",
-    "bootstrap": "lerna bootstrap"
-  },
+  "version": "2.0.0-alpha.4",
   "repository": "git+https://github.com/jbolda/gatsby-theme-bulma.git",
   "keywords": [
     "gatsby",
@@ -15,16 +12,9 @@
     "url": "https://github.com/jbolda/gatsby-theme-bulma/issues"
   },
   "homepage": "https://github.com/jbolda/gatsby-theme-bulma#readme",
-  "dependencies": {},
-  "devDependencies": {
-    "lerna": "^3.8.0"
+  "dependencies": {
+    "gatsby-theme-bulma-core": "^2.0.0-alpha.1"
   },
-  "engines": {
-    "yarn": "^1.2.1",
-    "node": ">=6.11.5"
-  },
-  "private": true,
-  "workspaces": [
-    "packages/*"
-  ]
+  "devDependencies": {},
+  "main": "index.js"
 }

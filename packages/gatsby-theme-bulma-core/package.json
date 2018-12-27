@@ -17,5 +17,6 @@
     "debug": "^4.1.1",
     "normalize.css": "^8.0.1",
     "prismjs": "^1.15.0"
-  }
+  },
+  "gitHead": "d135a488411a3b981141e97e9d44cb2c59d9cbd2"
 }

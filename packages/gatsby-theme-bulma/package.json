@@ -15,5 +15,6 @@
   "dependencies": {
     "gatsby-theme-bulma-core": "^2.0.0-alpha.4"
   },
-  "main": "index.js"
+  "main": "index.js",
+  "gitHead": "d135a488411a3b981141e97e9d44cb2c59d9cbd2"
 }

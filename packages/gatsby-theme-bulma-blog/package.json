@@ -1,7 +1,7 @@
 {
   "name": "gatsby-theme-bulma-blog",
   "author": "Jacob Bolda <me@jacobbolda.com>",
-  "version": "1.0.0-alpha.5",
+  "version": "1.0.0-alpha.6",
   "description": "",
   "scripts": {
     "build": "babel src --out-dir . --ignore __tests__",
@@ -21,7 +21,6 @@
     "url": "https://github.com/jbolda/gatsby-theme-bulma-blog/issues"
   },
   "homepage": "https://github.com/jbolda/gatsby-theme-bulma-blog#readme",
-  "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",

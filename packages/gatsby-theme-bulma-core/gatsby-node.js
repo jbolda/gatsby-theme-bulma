@@ -18,7 +18,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, plugins, actions }) => {
         rules: [
           {
             test: /\.js$/,
-            include: path.dirname(require.resolve('gatsby-theme-bulma')),
+            include: path.dirname(require.resolve('gatsby-theme-bulma-core')),
             use: [loaders.js()],
           },
         ],

@@ -44,14 +44,14 @@ exports.onPreExtractQueries = async ({}, options) => {
     const coerceString = `$${key}: ${palette.colors[key]};\n`
     return `${builtUpString}${coerceString}`
   }, '')
-  const palette = `export default { palette: ${JSON.stringify(palette)} }`
+  const paletteOutput = `export default { palette: ${JSON.stringify(palette)} }`
 
   await fs.mkdir(filePath, { recursive: true }, (err) => {
     if (err) throw err;
     fs.writeFile(`${filePath}_uservars.scss`, uservars, err => {
       if (err) throw err;
     });
-    fs.writeFile(`${filePath}palette.js`, palette, err => {
+    fs.writeFile(`${filePath}palette.js`, paletteOutput, err => {
       if (err) throw err;
     });
   });

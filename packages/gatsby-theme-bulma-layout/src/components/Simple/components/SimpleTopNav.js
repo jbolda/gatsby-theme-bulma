@@ -29,7 +29,12 @@ class SimpleTopNav extends React.Component {
               className="title"
               style={this.props.location.pathname == '/' ? {color: this.props.colors.P2} : {color: this.props.colors.P5}}
               >
-              {this.props.siteMetadata.siteTitle}
+              {this.props.logo ? 
+                  <Logo
+                  icon={this.props.logo.data}
+                  alt={this.props.logo.alt}
+                />
+                : this.props.siteMetadata.siteTitle}
             </span>
           </Link>
           {!this.props.siteMetadata.navLinks ? null : (
@@ -76,3 +81,15 @@ class SimpleTopNav extends React.Component {
 }
 
 export default SimpleTopNav;
+
+const Logo = ({ icon, alt }) => (
+  <img
+    src={icon}
+    alt={alt}
+    style={{
+      height: `50px`,
+      maxHeight: `50px`,
+      marginBottom: `0px`
+    }}
+  />
+);

@@ -27,15 +27,14 @@ exports.onCreateWebpackConfig = ({ stage, loaders, plugins, actions }) => {
   })
 }
 
-exports.onPreExtractQueries = async ({store}) => {
-  const config = store.getState().config
-  const colors = config.siteMetadata.palette.colors
+exports.onPreExtractQueries = async ({}, options) => {
+  const colors = options.palette.colors
 
   if (colors) {
     const filePath = `./.cache/gatsby-theme-bulma-core/`
-    const fileName = 'uservars.scss'
+    const fileName = '_uservars.scss'
     const uservars = Object.keys(colors).reduce((builtUpString, key) => {
-      const coerceString = `$${key}: '${colors[key]}';\n`
+      const coerceString = `$${key}: ${colors[key]};\n`
       return `${builtUpString}${coerceString}`
     }, '')
   

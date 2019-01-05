@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { StaticQuery } from 'gatsby';
+import { StaticQuery, graphql } from 'gatsby';
 import MasterLayout from "gatsby-theme-bulma-core/src/components/MasterLayout";
 import SimpleTopNav from "./components/SimpleTopNav";
 

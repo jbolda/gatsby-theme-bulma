@@ -71,6 +71,7 @@ class SimpleTopNav extends React.Component {
             <div className="navbar-end">
               {this.props.siteMetadata.navLinks.map(link => (
                 <Link
+                key={link.text}
                 to={link.url}
                 className="navbar-item"
                 style={this.props.location.pathname === link.url ? {backgroundColor: paletteColors.P5, color: paletteColors.P2} : {}}

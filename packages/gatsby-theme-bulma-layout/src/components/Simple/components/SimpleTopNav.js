@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "gatsby";
-import styles from "../palette.json";
 
 class SimpleTopNav extends React.Component {
   constructor(props) {
@@ -24,11 +23,11 @@ class SimpleTopNav extends React.Component {
           <Link
             to="/"
             className="navbar-item"
-            style={this.props.location.pathname == '/' ? {backgroundColor: styles.colors.P5} : {}}
+            style={this.props.location.pathname == '/' ? {backgroundColor: this.props.colors.P5} : {}}
             >
             <span
               className="title"
-              style={this.props.location.pathname == '/' ? {color: styles.colors.P2} : {color: styles.colors.P5}}
+              style={this.props.location.pathname == '/' ? {color: this.props.colors.P2} : {color: this.props.colors.P5}}
               >
               {this.props.siteMetadata.siteTitle}
             </span>
@@ -43,7 +42,7 @@ class SimpleTopNav extends React.Component {
               }
               aria-label="menu"
               aria-expanded={this.state.hamburgerActive ? 'true' : 'false'}
-              style={{ color: styles.colors.P5 }}
+              style={{ color: this.props.colors.P5 }}
               onClick={this.toggleHamburgerMenu}
             >
               <span aria-hidden="true" />
@@ -63,7 +62,7 @@ class SimpleTopNav extends React.Component {
                 <Link
                 to={link.url}
                 className="navbar-item"
-                style={this.props.location.pathname == '/' ? {backgroundColor: styles.colors.P5, color: styles.colors.P2} : {}}
+                style={this.props.location.pathname == '/' ? {backgroundColor: this.props.colors.P5, color: this.props.colors.P2} : {}}
                 >
                   {link.text}
                 </Link>

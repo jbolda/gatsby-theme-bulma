@@ -9,7 +9,7 @@ const SimpleNav = ({ location, site, children }) => (
     <SimpleTopNav
       siteMetadata={site.siteMetadata}
       location={location}
-      textColor={styles.colors.P5}
+      colors={site.siteMetadata.palette.colors}
     />
     {children}
     <section className="footer">

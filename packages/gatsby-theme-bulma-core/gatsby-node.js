@@ -28,24 +28,31 @@ exports.onCreateWebpackConfig = ({ stage, loaders, plugins, actions }) => {
 }
 
 exports.onPreExtractQueries = async ({}, options) => {
-  const colors = options.palette.colors
-
-  if (colors) {
-    const filePath = `./.cache/gatsby-theme-bulma-core/`
-    const uservars = Object.keys(colors).reduce((builtUpString, key) => {
-      const coerceString = `$${key}: ${colors[key]};\n`
-      return `${builtUpString}${coerceString}`
-    }, '')
-    const palette = `export default { palette: ${JSON.stringify(options.palette)} }`
-
-    await fs.mkdir(filePath, { recursive: true }, (err) => {
-      if (err) throw err;
-      fs.writeFile(`${filePath}_uservars.scss`, uservars, err => {
-        if (err) throw err;
-      });
-      fs.writeFile(`${filePath}palette.js`, palette, err => {
-        if (err) throw err;
-      });
-    });
+  const defaultPalette = {
+    colors: {
+      P1: '#000000',
+      P2: '#192c3b',
+      P3: '#52777d',
+      P4: '#9ebba9',
+      P5: '#f4f4f4',
+    }
   }
+  const palette = options.palette || defaultPalette
+  const filePath = `./.cache/gatsby-theme-bulma-core/`
+
+  const uservars = Object.keys(palette.colors).reduce((builtUpString, key) => {
+    const coerceString = `$${key}: ${palette.colors[key]};\n`
+    return `${builtUpString}${coerceString}`
+  }, '')
+  const palette = `export default { palette: ${JSON.stringify(palette)} }`
+
+  await fs.mkdir(filePath, { recursive: true }, (err) => {
+    if (err) throw err;
+    fs.writeFile(`${filePath}_uservars.scss`, uservars, err => {
+      if (err) throw err;
+    });
+    fs.writeFile(`${filePath}palette.js`, palette, err => {
+      if (err) throw err;
+    });
+  });
 }

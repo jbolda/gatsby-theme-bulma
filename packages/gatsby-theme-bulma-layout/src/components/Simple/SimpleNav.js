@@ -4,12 +4,13 @@ import { StaticQuery, graphql } from 'gatsby';
 import MasterLayout from "gatsby-theme-bulma-core/src/components/MasterLayout";
 import SimpleTopNav from "./components/SimpleTopNav";
 
-const SimpleNav = ({ location, site, children }) => (
+const SimpleNav = ({ location, site, children, logo }) => (
   <MasterLayout siteMetadata={site.siteMetadata} id="SimpleLayout">
     <SimpleTopNav
       siteMetadata={site.siteMetadata}
       location={location}
       colors={site.siteMetadata.palette.colors}
+      logo={logo}
     />
     {children}
     <section className="footer">

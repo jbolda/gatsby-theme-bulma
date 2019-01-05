@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import paletteColors from '.cache/gatsby-theme-bulma-core/palette.js'
+import paletteColors from '../../../../../../.cache/gatsby-theme-bulma-core/palette.js'
 
 class SimpleTopNav extends React.Component {
   constructor(props) {

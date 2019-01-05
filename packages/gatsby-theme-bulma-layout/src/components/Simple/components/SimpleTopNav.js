@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
+import paletteColors from '.cache/gatsby-theme-bulma-core/palette.js'
 
 class SimpleTopNav extends React.Component {
   constructor(props) {
@@ -24,13 +25,13 @@ class SimpleTopNav extends React.Component {
             to="/"
             className="navbar-item"
             style={this.props.location.pathname === '/' ?
-              {backgroundColor: this.props.colors.P5}
-              : this.props.logo.inverse ? {} : {backgroundColor: this.props.colors.P5}
+              {backgroundColor: paletteColors.P5}
+              : this.props.logo.inverse ? {} : {backgroundColor: paletteColors.P5}
             }
             >
             <span
               className="title"
-              style={this.props.location.pathname === '/' ? {color: this.props.colors.P2} : {color: this.props.colors.P5}}
+              style={this.props.location.pathname === '/' ? {color: paletteColors.P2} : {color: paletteColors.P5}}
               >
               {this.props.logo ? 
                   <Logo
@@ -52,7 +53,7 @@ class SimpleTopNav extends React.Component {
               }
               aria-label="menu"
               aria-expanded={this.state.hamburgerActive ? 'true' : 'false'}
-              style={{ color: this.props.colors.P5 }}
+              style={{ color: paletteColors.P5 }}
               onClick={this.toggleHamburgerMenu}
             >
               <span aria-hidden="true" />
@@ -72,7 +73,7 @@ class SimpleTopNav extends React.Component {
                 <Link
                 to={link.url}
                 className="navbar-item"
-                style={this.props.location.pathname === link.url ? {backgroundColor: this.props.colors.P5, color: this.props.colors.P2} : {}}
+                style={this.props.location.pathname === link.url ? {backgroundColor: paletteColors.P5, color: paletteColors.P2} : {}}
                 >
                   {link.text}
                 </Link>

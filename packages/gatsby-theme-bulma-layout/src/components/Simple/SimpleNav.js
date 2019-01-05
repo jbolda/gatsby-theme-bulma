@@ -9,7 +9,6 @@ const SimpleNav = ({ location, site, children, logo }) => (
     <SimpleTopNav
       siteMetadata={site.siteMetadata}
       location={location}
-      colors={site.siteMetadata.palette.colors}
       logo={logo}
     />
     {children}

@@ -32,15 +32,18 @@ exports.onPreExtractQueries = async ({}, options) => {
 
   if (colors) {
     const filePath = `./.cache/gatsby-theme-bulma-core/`
-    const fileName = '_uservars.scss'
     const uservars = Object.keys(colors).reduce((builtUpString, key) => {
       const coerceString = `$${key}: ${colors[key]};\n`
       return `${builtUpString}${coerceString}`
     }, '')
-  
+    const palette = `export default { palette: ${JSON.stringify(options.palette)} }`
+
     await fs.mkdir(filePath, { recursive: true }, (err) => {
       if (err) throw err;
-      fs.writeFile(`${filePath}${fileName}`, uservars, err => {
+      fs.writeFile(`${filePath}_uservars.scss`, uservars, err => {
+        if (err) throw err;
+      });
+      fs.writeFile(`${filePath}palette.js`, palette, err => {
         if (err) throw err;
       });
     });

@@ -41,15 +41,6 @@ export default props => (
               text
               url
             }
-            palette {
-              colors {
-                P1
-                P2
-                P3
-                P4
-                P5
-              }
-            }
           }
         }
       }

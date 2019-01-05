@@ -23,7 +23,10 @@ class SimpleTopNav extends React.Component {
           <Link
             to="/"
             className="navbar-item"
-            style={this.props.location.pathname === '/' ? {backgroundColor: this.props.colors.P5} : {backgroundColor: this.props.colors.P4}}
+            style={this.props.location.pathname === '/' ?
+              {backgroundColor: this.props.colors.P5}
+              : this.props.logo.inverse ? {} : {backgroundColor: this.props.colors.P5}
+            }
             >
             <span
               className="title"

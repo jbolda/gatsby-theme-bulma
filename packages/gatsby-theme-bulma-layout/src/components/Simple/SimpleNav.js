@@ -1,10 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import SimpleNavQuery from './.cache/gatsby-theme-bulma-layout/SimpleNavQuery';
+import { StaticQuery } from 'gatsby';
 import MasterLayout from "gatsby-theme-bulma-core/src/components/MasterLayout";
 import SimpleTopNav from "./components/SimpleTopNav";
-
-import styles from "./palette.json";
 
 const SimpleNav = ({ location, site, children }) => (
   <MasterLayout siteMetadata={site.siteMetadata} id="SimpleLayout">
@@ -28,7 +26,37 @@ const SimpleNav = ({ location, site, children }) => (
   </MasterLayout>
 );
 
-export default props => <SimpleNav site={SimpleNavQuery} {...props}/>
+
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query SimpleNav {
+        site {
+          siteMetadata {
+            siteTitle
+            siteAuthor
+            siteDescription
+            siteTwitterUrl
+            navLinks{
+              text
+              url
+            }
+            palette {
+              colors {
+                P1
+                P2
+                P3
+                P4
+                P5
+              }
+            }
+          }
+        }
+      }
+    `}
+    render={queryData => <SimpleNav site={queryData.site} {...props} />}
+  />
+);
 
 SimpleNav.propTypes = {
   site: PropTypes.shape({

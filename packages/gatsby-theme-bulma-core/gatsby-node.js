@@ -1,6 +1,7 @@
 const Debug = require('debug')
 const path = require('path')
 const fs = require('fs')
+const util = require('util')
 
 /**
  * When shipping NPM modules, they typically need to be either
@@ -44,7 +45,7 @@ exports.onPreExtractQueries = async ({}, options) => {
     const coerceString = `$${key}: ${palette.colors[key]};\n`
     return `${builtUpString}${coerceString}`
   }, '')
-  const paletteOutput = `export default { palette: ${JSON.stringify(palette)} }`
+  const paletteOutput = `export default ${util.inspect(palette)}`
 
   await fs.mkdir(filePath, { recursive: true }, (err) => {
     if (err) throw err;

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import paletteColors from '../../../../../../.cache/gatsby-theme-bulma-core/palette.js'
+import palette from '../../../../../../.cache/gatsby-theme-bulma-core/palette.js'
 
 class SimpleTopNav extends React.Component {
   constructor(props) {
@@ -25,13 +25,13 @@ class SimpleTopNav extends React.Component {
             to="/"
             className="navbar-item"
             style={this.props.location.pathname === '/' ?
-              {backgroundColor: paletteColors.P5}
-              : this.props.logo.inverse ? {} : {backgroundColor: paletteColors.P5}
+              {backgroundColor: palette.colors.P5}
+              : this.props.logo.inverse ? {} : {backgroundColor: palette.colors.P5}
             }
             >
             <span
               className="title"
-              style={this.props.location.pathname === '/' ? {color: paletteColors.P2} : {color: paletteColors.P5}}
+              style={this.props.location.pathname === '/' ? {color: palette.colors.P2} : {color: palette.colors.P5}}
               >
               {this.props.logo ? 
                   <Logo
@@ -53,7 +53,7 @@ class SimpleTopNav extends React.Component {
               }
               aria-label="menu"
               aria-expanded={this.state.hamburgerActive ? 'true' : 'false'}
-              style={{ color: paletteColors.P5 }}
+              style={{ color: palette.colors.P5 }}
               onClick={this.toggleHamburgerMenu}
             >
               <span aria-hidden="true" />
@@ -74,7 +74,7 @@ class SimpleTopNav extends React.Component {
                 key={link.text}
                 to={link.url}
                 className="navbar-item"
-                style={this.props.location.pathname === link.url ? {backgroundColor: paletteColors.P5, color: paletteColors.P2} : {}}
+                style={this.props.location.pathname === link.url ? {backgroundColor: palette.colors.P5, color: palette.colors.P2} : {}}
                 >
                   {link.text}
                 </Link>

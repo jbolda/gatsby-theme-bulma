@@ -34,7 +34,7 @@ class SimpleChrome extends React.Component {
     const adjustPostStyle = (this.props.hero) ? {marginTop: "-30%"} : {}
 
     return (
-      <SimpleBlogPostLayout sitemetadata={this.props.sitemetadata} location={this.props.location}>
+      <SimpleBlogPostLayout location={this.props.location}>
         <HeroImage hero={this.props.hero}/>
         <section className="section" style={{paddingBottom: "1rem", ...adjustPostStyle}}>
           <div className="container">

@@ -21,27 +21,16 @@ class SimpleBlogPostTemplate extends React.Component {
 export default SimpleBlogPostTemplate
 
 export const pageQuery = graphql`
-  query SimpleBlogPostTemplatePostBySlug($slug: String!) {
+  query SimpleBlogPostTemplatePostBySlug($slug: String!, $hero: String!) {
     post: markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       ...MarkdownBlogPost_frontmatter
     }
-    hero: file(relativePath: {eq: "hero.jpg"}) {
+    hero: file(relativePath: {eq: $hero}) {
       childImageSharp {
         sizes(maxWidth: 1920) {
           ...GatsbyImageSharpSizes_tracedSVG
         }
-      }
-    }
-    site {
-      siteMetadata {
-        siteTitle
-        siteDescr
-        siteAuthor
-        siteEmailUrl
-        siteEmailPretty
-        siteTwitterUrl
-        siteTwitterPretty
       }
     }
   }

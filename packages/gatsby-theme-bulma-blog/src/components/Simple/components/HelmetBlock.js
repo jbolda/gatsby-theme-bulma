@@ -1,6 +1,5 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import moment from 'moment';
 
 class HelmetBlock extends React.Component {
   render() {
@@ -15,8 +14,8 @@ class HelmetBlock extends React.Component {
             { property: 'og:description', content: frontmatter.description },
             { property: 'og:type', content: 'article' },
             { property: 'og:article:author', content: 'Jacob Bolda' },
-            { property: 'og:article:published_time', content: moment(frontmatter.written, 'YYYY-MM-DD') },
-            { property: 'og:article:modified_time', content: moment(frontmatter.updated, 'YYYY-MM-DD') },
+            { property: 'og:article:published_time', content: frontmatter.written },
+            { property: 'og:article:modified_time', content: frontmatter.updated },
             { property: 'og:article:tag', content: frontmatter.category },
             { name: 'twitter:label1', content: 'Category' },
             { name: 'twitter:data1', content: frontmatter.category },

@@ -153,6 +153,3 @@ const ColumnContainer = ({ children }) => (
     <div className="column is-half">{children}</div>
   </div>
 );
-
-
-export default SimpleChrome

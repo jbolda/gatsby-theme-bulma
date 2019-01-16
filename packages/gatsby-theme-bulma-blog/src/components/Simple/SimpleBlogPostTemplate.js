@@ -1,4 +1,5 @@
 import React from "react"
+import { graphql } from 'gatsby'
 import SimpleChrome from "./SimpleChrome"
 
 class SimpleBlogPostTemplate extends React.Component {
@@ -42,4 +43,5 @@ query GatsbyThemeBulmaBlogSimpleBlogPostTemplatePostBySlug($slug: String!, $hero
       }
     }
   }
+}
 `

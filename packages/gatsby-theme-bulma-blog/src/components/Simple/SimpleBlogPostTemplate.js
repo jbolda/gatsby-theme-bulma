@@ -9,7 +9,6 @@ class SimpleBlogPostTemplate extends React.Component {
       <SimpleChrome
         post={this.props.data.post}
         hero={this.props.data.hero}
-        sitemetadata={this.props.data.site.siteMetadata}
         location={this.props.location}
         >
         <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
@@ -21,16 +20,25 @@ class SimpleBlogPostTemplate extends React.Component {
 export default SimpleBlogPostTemplate
 
 export const pageQuery = graphql`
-  query SimpleBlogPostTemplatePostBySlug($slug: String!, $hero: String!) {
-    post: markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      ...MarkdownBlogPost_frontmatter
+query GatsbyThemeBulmaBlogSimpleBlogPostTemplatePostBySlug($slug: String!, $heroImage: String!) {
+  post: markdownRemark(fields: { slug: { eq: $slug } }) {
+    html
+    frontmatter {
+      title
+      path
+      layoutType
+      writtenPretty: written(formatString: "MMMM Do YYYY")
+      updatedPretty: updated(formatString: "MMMM Do YYYY")
+      written
+      updated
+      category
+      description
     }
-    hero: file(relativePath: {eq: $hero}) {
-      childImageSharp {
-        sizes(maxWidth: 1920) {
-          ...GatsbyImageSharpSizes_tracedSVG
-        }
+  }
+  hero: file(relativePath: {eq: $heroImage}) {
+    childImageSharp {
+      fluid(maxWidth: 1920) {
+        ...GatsbyImageSharpFluid_tracedSVG
       }
     }
   }

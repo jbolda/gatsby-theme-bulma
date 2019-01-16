@@ -1,6 +1,6 @@
 import React from "react"
 import { StaticQuery, graphql } from 'gatsby';
-import SimpleNav from "gatsby-theme-bulma-layout/Simple/SimpleNav"
+import SimpleNav from "gatsby-theme-bulma-layout/src/components/Simple/SimpleNav"
 
 class SimpleBlogPostLayout extends React.Component {
   render() {
@@ -28,7 +28,7 @@ class SimpleBlogPostLayout extends React.Component {
 export default props => (
   <StaticQuery
     query={graphql`
-      query SimpleNav {
+      query GatsbyThemeBulmaBlogSimpleBlogPostLayout {
         site {
           siteMetadata {
             siteTitle

@@ -25,7 +25,7 @@ class HeroLayout extends React.Component {
                   <div className="column is-half">
                     <h3 className="subtitle">Hi, I am</h3>
                     <h1 className="title">{siteMetadata.siteAuthor}</h1>
-                    <h2 className="subtitle">{siteMetadata.siteAuthorIndentity}</h2>
+                    <h2 className="subtitle">{siteMetadata.siteAuthorIdentity}</h2>
                     <div className="">
                       <p>{siteMetadata.siteLanding}</p>
                     </div>

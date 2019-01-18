@@ -3,6 +3,12 @@ import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import "../css/base.scss";
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { fas, far } from '@fortawesome/free-solid-svg-icons'
+
+library.add(fab, fas, far)
+
 class MasterLayout extends React.Component {
   render() {
     let { siteMetadata } = this.props;

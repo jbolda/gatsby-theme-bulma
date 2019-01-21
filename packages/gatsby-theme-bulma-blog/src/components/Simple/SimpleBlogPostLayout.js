@@ -14,7 +14,7 @@ class SimpleBlogPostLayout extends React.Component {
           <div className="container">
             <p>
               {siteMetadata.siteDescription}
-              <a href={siteMetadata.siteTwitterUrl}>
+              <a href={siteMetadata.siteContact}>
                 <br /> <strong>{siteMetadata.siteAuthor}</strong> on Twitter
               </a>
             </p>
@@ -34,10 +34,7 @@ export default props => (
             siteTitle
             siteAuthor
             siteDescription
-            siteEmailUrl
-            siteEmailPretty
-            siteTwitterUrl
-            siteTwitterPretty
+            siteContact
           }
         }
       }

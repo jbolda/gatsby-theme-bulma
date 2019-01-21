@@ -17,7 +17,7 @@ const SimpleNav = ({ location, site, children, logo }) => (
         <p className="copyright">
           Made with <Heart style={{ marginBottom: `-7px` }} /> by
           {` `}
-          <a className="copyright" href={site.siteMetadata.siteTwitterUrl}>
+          <a className="copyright" href={site.siteMetadata.siteContact}>
             {site.siteMetadata.siteAuthor}
           </a>
         </p>
@@ -36,7 +36,7 @@ export default props => (
             siteTitle
             siteAuthor
             siteDescription
-            siteTwitterUrl
+            siteContact
             navLinks{
               text
               url

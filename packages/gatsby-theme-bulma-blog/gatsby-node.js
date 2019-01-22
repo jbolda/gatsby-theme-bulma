@@ -32,10 +32,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators
 
   return new Promise((resolve, reject) => {
-    const pages = []
-    const mdBlogPost = path.resolve(`node_modules/gatsby-theme-bulma-blog/src/components/Simple/SimpleBlogPostTemplate.js`)
+    const mdBlogPost = path.resolve(`./src/Simple/templates/SimpleBlogPostTemplate.js`)
 
-    // Query for all markdown "nodes" and for the slug we previously created.
     resolve(
       graphql(
         `
@@ -62,7 +60,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           reject(result.errors)
         }
 
-        // Create from markdown
         result.data.allMarkdownRemark.edges.forEach(edge => {
           const frontmatter = edge.node.frontmatter
           if (frontmatter.layoutType === `post`) {

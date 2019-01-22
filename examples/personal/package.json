@@ -1,0 +1,41 @@
+{
+  "name": "personal-website",
+  "version": "2.0.0",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "develop": "gatsby develop",
+    "dev:hard": "npm run clean && npm run develop",
+    "build": "npm run clean & gatsby build",
+    "serve": "gatsby serve",
+    "clean": "rm -rf .cache && rm -rf public",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pretty": "prettier --write \"{src,plugins,__{tests,mocks}__}/**/*.js\""
+  },
+  "author": "jbolda",
+  "dependencies": {
+    "gatsby": "^2.0.73",
+    "gatsby-image": "^2.0.25",
+    "gatsby-plugin-manifest": "^2.0.12",
+    "gatsby-plugin-sharp": "^2.0.15",
+    "gatsby-plugin-typography": "^2.2.2",
+    "gatsby-source-filesystem": "2.0.16",
+    "gatsby-theme-bulma-blog": "^2.0.0-alpha.19",
+    "gatsby-theme-bulma-core": "^2.0.0-alpha.23",
+    "gatsby-theme-bulma-homepage": "^2.0.0-alpha.2",
+    "gatsby-theme-bulma-layout": "^2.0.0-alpha.18",
+    "gatsby-transformer-javascript-frontmatter": "^2.0.5",
+    "gatsby-transformer-remark": "^2.1.17",
+    "gatsby-transformer-sharp": "^2.1.9",
+    "prop-types": "^15.5.8",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-helmet": "^5.2.0",
+    "react-typography": "^0.16.18",
+    "typography": "^0.16.18",
+    "typography-theme-lawton": "^0.16.18"
+  },
+  "devDependencies": {
+    "prettier": "^1.15.3"
+  }
+}

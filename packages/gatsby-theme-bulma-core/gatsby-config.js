@@ -4,7 +4,7 @@ module.exports = {
       resolve: `gatsby-plugin-sass`,
       options: {
         includePaths: [
-          '.cache/gatsby-theme-bulma-core',
+          '.cache/gatsby-theme-bulma',
         ]
       }
     },

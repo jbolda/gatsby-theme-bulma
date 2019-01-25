@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from 'gatsby'
-import SimpleChrome from "./SimpleChrome"
+import SimpleChrome from "../SimpleChrome.js"
 
 class SimpleBlogPostTemplate extends React.Component {
   render() {

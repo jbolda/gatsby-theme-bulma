@@ -25,6 +25,11 @@ exports.onCreateWebpackConfig = ({ stage, loaders, plugins, actions }) => {
         },
       ],
     },
+    resolve: {
+      alias: {
+        gatsbyThemeBulmaCache: path.resolve('.cache/gatsby-theme-bulma/')
+      }
+    }
   })
 }
 
@@ -39,7 +44,7 @@ exports.onPreExtractQueries = async ({}, options) => {
     }
   }
   const palette = options.palette || defaultPalette
-  const filePath = `./.cache/gatsby-theme-bulma-core/`
+  const filePath = `./.cache/gatsby-theme-bulma/`
 
   const uservars = Object.keys(palette.colors).reduce((builtUpString, key) => {
     const coerceString = `$${key}: ${palette.colors[key]};\n`

@@ -20,6 +20,9 @@ module.exports = {
       { url: "https://keybase.io/jbolda", text: "keybase.io/jbolda", icon: ["fab", "keybase"] },
       { url: "https://angel.co/jacobbolda", text: "angel.co/jacobbolda", icon: ["fab", "angellist"] },
       { url: "http://www.jbolda.com/photo", text: "My Photographs", icon: ["fas", "camera"] }
+    ],
+    navLinks: [
+      { url: "", text: "" }
     ]
   },
   __experimentalThemes: [
@@ -80,7 +83,6 @@ module.exports = {
       }
     },
     `gatsby-transformer-javascript-frontmatter`,
-    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
     {

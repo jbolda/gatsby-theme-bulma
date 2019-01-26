@@ -62,17 +62,15 @@ class HeroLayout extends React.Component {
 
 
 HeroLayout.propTypes = {
-  children: PropTypes.array.isRequired,
-  data: PropTypes.shape({
-    file: PropTypes.shape({
-      childImageSharp: PropTypes.shape({
-        fluid: PropTypes.object.isRequired
-      })
-    }).isRequired,
-    about: PropTypes.shape({
-      childMarkdownRemark: PropTypes.shape({
-        html: PropTypes.string.isRequired
-      }).isRequired
+  children: PropTypes.array,
+  profile: PropTypes.shape({
+    childImageSharp: PropTypes.shape({
+      fluid: PropTypes.object.isRequired
+    })
+  }).isRequired,
+  about: PropTypes.shape({
+    childMarkdownRemark: PropTypes.shape({
+      html: PropTypes.string.isRequired
     }).isRequired
   }).isRequired
 };

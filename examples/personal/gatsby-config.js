@@ -82,6 +82,7 @@ module.exports = {
         path: `${__dirname}/src/assets/`
       }
     },
+    `gatsby-transformer-remark`,
     `gatsby-transformer-javascript-frontmatter`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,

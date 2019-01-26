@@ -4,15 +4,13 @@ module.exports = {
     siteDescription: `Structural Engineer with a knack for creative solutions using code and ingenuity.`,
     siteAuthor: `Jacob Bolda`,
     siteAuthorIdentity: `Structural Engineer`,
-    siteLanding: `
-      Focusing on the intersection of tech and Structural
+    siteLanding: `Focusing on the intersection of tech and Structural
       Engineering. Masters degree in Structural Engineering
       from the Milwaukee School of Engineering, undergrad in
       Architectural Engineering with a minor in Management,
       and a deep understanding of software and programming.
       Marrying that experience with problem solving and
-      systematizing is powerful.
-    `,
+      systematizing is powerful.`,
     siteContact: "https://twitter.com/jacobbolda",
     contactLinks: [
       { url: "mailto:me@jacobbolda.com", text: "me@jacobbolda.com", icon: ["far", "envelope"] },
@@ -84,12 +82,6 @@ module.exports = {
     `gatsby-transformer-javascript-frontmatter`,
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`
-      }
-    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-manifest`,

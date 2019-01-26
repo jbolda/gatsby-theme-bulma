@@ -62,7 +62,9 @@ class SimpleTopNav extends React.Component {
             </a>
           )}
         </div>
-        {!this.props.siteMetadata.navLinks ? null : (
+        {!this.props.siteMetadata.navLinks ? null : 
+          this.props.siteMetadata.navLinks[0].text === "" ? null :
+          (
           <div
             className={
               this.state.hamburgerActive ? 'navbar-menu is-active' : 'navbar-menu'

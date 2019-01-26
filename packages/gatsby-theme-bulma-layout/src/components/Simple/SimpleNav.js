@@ -30,14 +30,14 @@ const SimpleNav = ({ location, site, children, logo }) => (
 export default props => (
   <StaticQuery
     query={graphql`
-      query SimpleNav {
+      query GatsbyThemeBulmaLayoutSimpleNav {
         site {
           siteMetadata {
             siteTitle
             siteAuthor
             siteDescription
             siteContact
-            navLinks{
+            navLinks {
               text
               url
             }
@@ -52,7 +52,7 @@ export default props => (
 SimpleNav.propTypes = {
   site: PropTypes.shape({
     siteMetadata: PropTypes.shape({
-      siteTwitterUrl: PropTypes.string.isRequired
+      siteContact: PropTypes.string.isRequired
     }).isRequired
   }).isRequired
 };

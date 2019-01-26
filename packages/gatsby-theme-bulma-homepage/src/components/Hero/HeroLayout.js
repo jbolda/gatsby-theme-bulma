@@ -1,15 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
+import { StaticQuery, graphql } from 'gatsby';
 import SimpleNav from "gatsby-theme-bulma-layout/src/components/Simple/SimpleNav";
 import SiteLinks from "../shared/SiteLinks";
 
 class HeroLayout extends React.Component {
   render() {
-    const { siteMetadata } = this.props.data.site;
-
+    const { about, profile, site } = this.props;
+    const { siteMetadata } = site;
+  
     return (
-      <SimpleNav site={this.props.data.site} {...this.props}>
+      <SimpleNav location={this.props.location}>
         <section className="hero is-small is-secondary edge--bottom">
           <div className="hero-body">
             <div className="columns is-centered is-vcentered">
@@ -17,7 +19,7 @@ class HeroLayout extends React.Component {
                 <Img
                   className="image"
                   Tag="figure"
-                  fluid={this.props.data.file.childImageSharp.fluid}
+                  fluid={profile.childImageSharp.fluid}
                 />
               </div>
               <div className="column">
@@ -39,13 +41,13 @@ class HeroLayout extends React.Component {
           <div className="hero-body">
             <div className="columns">
               <div className="column is-one-quarter">
-                <SiteLinks {...this.props} />
+                <SiteLinks site={site} />
               </div>
               <div className="column">
                 <div
                   className="content"
                   dangerouslySetInnerHTML={{
-                    __html: this.props.data.about.childMarkdownRemark.html
+                    __html: about.childMarkdownRemark.html
                   }}
                 />
               </div>
@@ -58,7 +60,6 @@ class HeroLayout extends React.Component {
   }
 }
 
-export default HeroLayout;
 
 HeroLayout.propTypes = {
   children: PropTypes.array.isRequired,
@@ -75,3 +76,42 @@ HeroLayout.propTypes = {
     }).isRequired
   }).isRequired
 };
+
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query GatsbyThemeBulmaHomepageHeroLayout {
+        site {
+          siteMetadata {
+            siteAuthor
+            siteAuthorIdentity
+            siteLanding
+            contactLinks {
+              text
+              url
+              icon
+            }
+          }
+        }
+        about: file(relativePath: { eq: "_about.md" }) {
+          childMarkdownRemark {
+            html
+          }
+        }
+        profile: file(relativePath: { eq: "profile.png" }) {
+          childImageSharp {
+            fluid(
+              maxWidth: 500
+              maxHeight: 500
+              quality: 90
+              duotone: { highlight: "#bdc4bf", shadow: "#192C3B" }
+            ) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    `}
+    render={queryData => <HeroLayout site={queryData.site} about={queryData.about} profile={queryData.profile} {...props} />}
+  />
+);

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class SiteLinks extends React.Component {
   render() {
-    const { siteMetadata } = this.props.data.site;
+    const { siteMetadata } = this.props.site;
 
     return (
       <aside className="menu">

@@ -1,6 +1,22 @@
 const Debug = require('debug')
 const path = require('path')
 
+exports.createPages = ({ actions }) => {
+  const { createPage } = actions
+
+  return new Promise((resolve, reject) => {
+    const homepage = require.resolve(`./src/components/Hero/HeroTemplate.js`)
+
+    resolve(
+      createPage({
+        path: '/', // required
+        component: homepage
+      })
+    )
+
+  })
+}
+
 /**
  * When shipping NPM modules, they typically need to be either
  * pre-compiled or the user needs to add bundler config to process the

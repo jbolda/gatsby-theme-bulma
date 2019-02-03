@@ -5,22 +5,18 @@ class PostPublished extends React.Component {
   render() {
     const { frontmatter } = this.props;
 
-    if (frontmatter.updatedPretty == null) {
-      var published = (
-        <div className="date-published">
-          <em>{`published ${frontmatter.writtenPretty}`}</em>
-        </div>
-      );
-    } else {
-      var published = (
+      let published = frontmatter.updatedPretty ? (
         <div className="date-published">
           <em>
             {`originally published ${frontmatter.writtenPretty}
               and updated ${frontmatter.updatedPretty}`}
           </em>
         </div>
+      ) : (
+        <div className="date-published">
+          <em>{`published ${frontmatter.writtenPretty}`}</em>
+        </div>
       );
-    }
 
     return <div className="container content">{published}</div>;
   }

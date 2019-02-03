@@ -26,7 +26,7 @@ class SimpleTopNav extends React.Component {
             className="navbar-item"
             style={this.props.location.pathname === '/' ?
               {backgroundColor: palette.colors.P5}
-              : this.props.logo && this.props.logo.inverse ? {} : {backgroundColor: palette.colors.P5}
+              : {}
             }
             >
             <span
@@ -44,8 +44,7 @@ class SimpleTopNav extends React.Component {
             </span>
           </Link>
           {!this.props.siteMetadata.navLinks ? null : (
-            <a
-              role="button"
+            <button
               className={
                 this.state.hamburgerActive
                   ? 'navbar-burger is-active'
@@ -59,7 +58,7 @@ class SimpleTopNav extends React.Component {
               <span aria-hidden="true" />
               <span aria-hidden="true" />
               <span aria-hidden="true" />
-            </a>
+            </button>
           )}
         </div>
         {!this.props.siteMetadata.navLinks ? null : 

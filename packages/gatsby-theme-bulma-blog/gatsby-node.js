@@ -4,13 +4,11 @@ const path = require('path')
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
   let slug
-  if (
-    node.internal.type === `MarkdownRemark` ||
-    node.internal.type === `JavascriptFrontmatter`
-  ) {
+  if (node.internal.type === `MarkdownRemark`) {
     try {
       const fileNode = getNode(node.parent)
       const parsedFilePath = path.parse(fileNode.relativePath)
+
       if (parsedFilePath.name !== `index` && parsedFilePath.dir !== ``) {
         slug = `/${parsedFilePath.dir}/${parsedFilePath.name}/`
       } else if (parsedFilePath.dir === ``) {
@@ -21,6 +19,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   
       // Add slug as a field on the node.
       createNodeField({ node, name: `slug`, value: slug })
+      createNodeField({ node, name: `sourceInstanceName`, value: fileNode.sourceInstanceName})
     } catch (error) {
       // nil
     }
@@ -38,11 +37,10 @@ exports.createPages = ({ graphql, actions }) => {
       graphql(
         `
           {
-            allMarkdownRemark {
+            allMarkdownRemark(filter: {fields: {sourceInstanceName: {eq: "articles"}}}) {
               edges {
                 node {
                   frontmatter {
-                    layoutType
                     path
                   }
                   fields {
@@ -61,17 +59,14 @@ exports.createPages = ({ graphql, actions }) => {
         }
 
         result.data.allMarkdownRemark.edges.forEach(edge => {
-          const frontmatter = edge.node.frontmatter
-          if (frontmatter.layoutType === `post`) {
-            createPage({
-              path: frontmatter.path, // required
-              component: mdBlogPost,
-              context: {
-                slug: edge.node.fields.slug,
-                heroImage: frontmatter.hero || `hero.jpg`,
-              },
-            })
-          }
+          createPage({
+            path: edge.node.frontmatter.path, // required
+            component: mdBlogPost,
+            context: {
+              slug: edge.node.fields.slug,
+              heroImage: edge.node.frontmatter.hero || `hero.jpg`,
+            },
+          })
         })
 
         return

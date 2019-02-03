@@ -2,10 +2,10 @@
 title: On Las Vegas Travel
 written: "2016-10-18"
 updated: "2017-10-18"
-layoutType: post
 path: "/on-las-vegas/"
 category: "travel"
 description: "I had a few days of remaining vacation, and the wife had off for a week. What better place to kill a weekend+ of vacation? Except we are not gambling people nor do we prioritize drinking. Odd place to go then, right?"
+heroImage: red-rock-canyon.jpg
 ---
 
 # The Trip

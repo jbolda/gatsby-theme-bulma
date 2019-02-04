@@ -1,5 +1,5 @@
 #!/bin/sh
-yarn bootst
+yarn bootstrap
 
 cd "$1" || exit
 

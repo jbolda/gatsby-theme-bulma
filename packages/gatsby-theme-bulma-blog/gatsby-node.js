@@ -59,14 +59,16 @@ exports.createPages = ({ graphql, actions }) => {
         }
 
         result.data.allMarkdownRemark.edges.forEach(edge => {
-          createPage({
-            path: edge.node.frontmatter.path, // required
-            component: mdBlogPost,
-            context: {
-              slug: edge.node.fields.slug,
-              heroImage: edge.node.frontmatter.hero || `hero.jpg`,
-            },
-          })
+          if (edge.node.frontmatter.path) {
+            createPage({
+              path: edge.node.frontmatter.path, // required
+              component: mdBlogPost,
+              context: {
+                slug: edge.node.fields.slug,
+                heroImage: edge.node.frontmatter.hero || `hero.jpg`,
+              },
+            })
+          }
         })
 
         return

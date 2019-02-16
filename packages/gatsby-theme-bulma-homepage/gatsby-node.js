@@ -11,9 +11,9 @@ exports.createPages = ({ actions, store }) => {
   return new Promise((resolve, reject) => {
     let homepage
     if (hasBlogInstalled) {
-      homepage = require.resolve(`./src/components/Hero/HeroTemplateWithArticles.js`)
+      homepage = require.resolve(`./src/Hero/HeroTemplateWithArticles.js`)
     } else {
-      homepage = require.resolve(`./src/components/Hero/HeroTemplatePlain.js`)
+      homepage = require.resolve(`./src/Hero/HeroTemplatePlain.js`)
     }
 
     resolve(

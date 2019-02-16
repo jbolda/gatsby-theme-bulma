@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
 import { StaticQuery, graphql } from 'gatsby';
-import SimpleNav from "gatsby-theme-bulma-layout/src/components/Simple/SimpleNav";
+import SimpleNav from "gatsby-theme-bulma-layout/src/Simple/SimpleNav";
 import SiteLinks from "../shared/SiteLinks";
 
 class HeroLayout extends React.Component {

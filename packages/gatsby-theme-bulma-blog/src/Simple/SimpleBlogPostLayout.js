@@ -1,6 +1,6 @@
 import React from "react"
 import { StaticQuery, graphql } from 'gatsby';
-import SimpleNav from "gatsby-theme-bulma-layout/src/components/Simple/SimpleNav"
+import SimpleNav from "gatsby-theme-bulma-layout/src/Simple/SimpleNav"
 
 class SimpleBlogPostLayout extends React.Component {
   render() {

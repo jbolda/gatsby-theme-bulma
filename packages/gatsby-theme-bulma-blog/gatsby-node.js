@@ -31,7 +31,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   return new Promise((resolve, reject) => {
-    const mdBlogPost = require.resolve(`./src/components/Simple/templates/SimpleBlogPostTemplate.js`)
+    const mdBlogPost = require.resolve(`./src/Simple/templates/SimpleBlogPostTemplate.js`)
 
     resolve(
       graphql(

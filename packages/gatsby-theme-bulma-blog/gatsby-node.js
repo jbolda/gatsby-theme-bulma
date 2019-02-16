@@ -20,6 +20,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       // Add slug as a field on the node.
       createNodeField({ node, name: `slug`, value: slug })
       createNodeField({ node, name: `sourceInstanceName`, value: fileNode.sourceInstanceName})
+      createNodeField({ node, name: `heroImage`, value: fileNode.frontmatter.heroImage || './src/assets/placeholder.jpg'})
     } catch (error) {
       // nil
     }

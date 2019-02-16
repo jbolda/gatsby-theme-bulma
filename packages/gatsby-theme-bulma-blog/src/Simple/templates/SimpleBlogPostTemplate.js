@@ -33,6 +33,8 @@ query GatsbyThemeBulmaBlogSimpleBlogPostTemplatePostBySlug($slug: String!) {
       updated
       category
       description
+    }
+    fields {
       heroImage {
         childImageSharp {
           fluid(maxWidth: 1920) {

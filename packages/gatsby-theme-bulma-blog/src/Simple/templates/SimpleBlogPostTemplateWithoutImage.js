@@ -21,7 +21,7 @@ class SimpleBlogPostTemplate extends React.Component {
 export default SimpleBlogPostTemplate
 
 export const pageQuery = graphql`
-query GatsbyThemeBulmaBlogSimpleBlogPostTemplatePostBySlugWithImage($slug: String!) {
+query GatsbyThemeBulmaBlogSimpleBlogPostTemplatePostBySlugWithoutImage($slug: String!) {
   post: markdownRemark(fields: { slug: { eq: $slug } }) {
     html
     frontmatter {
@@ -33,13 +33,6 @@ query GatsbyThemeBulmaBlogSimpleBlogPostTemplatePostBySlugWithImage($slug: Strin
       updated
       category
       description
-      heroImage {
-        childImageSharp {
-          fluid(maxWidth: 1920) {
-            ...GatsbyImageSharpFluid_tracedSVG
-          }
-        }
-      }
     }
   }
 }

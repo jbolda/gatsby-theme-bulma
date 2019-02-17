@@ -16,13 +16,14 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       } else {
         slug = `/${parsedFilePath.dir}/`
       }
-  
+
       // Add slug as a field on the node.
       createNodeField({ node, name: `slug`, value: slug })
       createNodeField({ node, name: `sourceInstanceName`, value: fileNode.sourceInstanceName})
-      createNodeField({ node, name: `heroImage`, value: fileNode.frontmatter.heroImage || './src/assets/placeholder.jpg'})
+      createNodeField({ node, name: `heroImageSet`, value: !!node.frontmatter.heroImage})
     } catch (error) {
       // nil
+      console.log(error)
     }
 
   }
@@ -33,6 +34,7 @@ exports.createPages = ({ graphql, actions }) => {
 
   return new Promise((resolve, reject) => {
     const mdBlogPost = require.resolve(`./src/Simple/templates/SimpleBlogPostTemplate.js`)
+    const mdBlogPostWithoutImage = require.resolve(`./src/Simple/templates/SimpleBlogPostTemplateWithoutImage.js`)
 
     resolve(
       graphql(
@@ -46,6 +48,7 @@ exports.createPages = ({ graphql, actions }) => {
                   }
                   fields {
                     slug
+                    heroImageSet
                   }
                 }
               }
@@ -63,10 +66,9 @@ exports.createPages = ({ graphql, actions }) => {
           if (edge.node.frontmatter.path) {
             createPage({
               path: edge.node.frontmatter.path, // required
-              component: mdBlogPost,
+              component: edge.node.fields.heroImageSet ? mdBlogPost : mdBlogPostWithoutImage,
               context: {
-                slug: edge.node.fields.slug,
-                heroImage: edge.node.frontmatter.hero || `hero.jpg`,
+                slug: edge.node.fields.slug
               },
             })
           }

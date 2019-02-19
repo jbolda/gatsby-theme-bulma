@@ -1,0 +1,36 @@
+{
+  "name": "personal-website",
+  "version": "2.0.5",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "develop": "gatsby develop",
+    "dev:hard": "npm run clean && npm run develop",
+    "build": "npm run clean & gatsby build",
+    "serve": "gatsby serve",
+    "clean": "rm -rf .cache && rm -rf public",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pretty": "prettier --write \"{src,plugins,__{tests,mocks}__}/**/*.js\""
+  },
+  "author": "jbolda",
+  "dependencies": {
+    "gatsby": "^2.1.4",
+    "gatsby-image": "^2.0.29",
+    "gatsby-plugin-manifest": "^2.0.17",
+    "gatsby-plugin-sharp": "^2.0.20",
+    "gatsby-source-filesystem": "2.0.20",
+    "gatsby-theme-bulma-blog": "^2.0.0-alpha.31",
+    "gatsby-theme-bulma-core": "^2.0.0-alpha.34",
+    "gatsby-theme-bulma-homepage": "^2.0.0-alpha.9",
+    "gatsby-theme-bulma-layout": "^2.0.0-alpha.30",
+    "gatsby-transformer-javascript-frontmatter": "^2.0.8",
+    "gatsby-transformer-remark": "^2.2.5",
+    "gatsby-transformer-sharp": "^2.1.13",
+    "prop-types": "^15.7.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.15.3"
+  }
+}

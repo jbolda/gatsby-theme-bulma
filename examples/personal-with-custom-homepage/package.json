@@ -1,6 +1,6 @@
 {
-  "name": "personal-website",
-  "version": "2.0.5",
+  "name": "personal-website-with-custom-homepage",
+  "version": "2.0.0",
   "main": "index.js",
   "private": true,
   "scripts": {

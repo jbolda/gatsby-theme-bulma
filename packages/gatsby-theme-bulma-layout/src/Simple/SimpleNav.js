@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { StaticQuery, graphql } from 'gatsby';
+import { StaticQuery, graphql } from "gatsby";
 import MasterLayout from "gatsby-theme-bulma-core/src/components/MasterLayout";
 import SimpleTopNav from "./components/SimpleTopNav";
 
@@ -25,7 +25,6 @@ const SimpleNav = ({ location, site, children, logo }) => (
     </section>
   </MasterLayout>
 );
-
 
 export default props => (
   <StaticQuery

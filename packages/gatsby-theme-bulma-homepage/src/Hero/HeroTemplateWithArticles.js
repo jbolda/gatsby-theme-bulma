@@ -1,6 +1,6 @@
 import React from "react";
 import HeroLayout from "./components/HeroLayout.js";
-import HeroArticles from './components/HeroArticles.js'
+import HeroArticles from "./components/HeroArticles.js";
 
 const HeroTemplate = props => (
   <HeroLayout {...props}>
@@ -16,4 +16,4 @@ const HeroTemplate = props => (
   </HeroLayout>
 );
 
-export default HeroTemplate
+export default HeroTemplate;

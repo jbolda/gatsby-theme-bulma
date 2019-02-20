@@ -5,4 +5,4 @@ const HeroTemplate = props => (
   <HeroLayout {...props}>{props.children}</HeroLayout>
 );
 
-export default HeroTemplate
+export default HeroTemplate;

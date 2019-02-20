@@ -13,17 +13,43 @@ module.exports = {
       systematizing is powerful.`,
     siteContact: "https://twitter.com/jacobbolda",
     contactLinks: [
-      { url: "mailto:me@jacobbolda.com", text: "me@jacobbolda.com", icon: ["far", "envelope"] },
-      { url: "https://twitter.com/jacobbolda", text: "@jacobbolda", icon: ["fab", "twitter"] },
-      { url: "https://linkedin.com/in/bolda", text: "linkedin.com/in/bolda", icon: ["fab","linkedin"] },
-      { url: "https://github.com/jbolda", text: "github.com/jbolda", icon: ["fab", "github"] },
-      { url: "https://keybase.io/jbolda", text: "keybase.io/jbolda", icon: ["fab", "keybase"] },
-      { url: "https://angel.co/jacobbolda", text: "angel.co/jacobbolda", icon: ["fab", "angellist"] },
-      { url: "http://www.jbolda.com/photo", text: "My Photographs", icon: ["fas", "camera"] }
+      {
+        url: "mailto:me@jacobbolda.com",
+        text: "me@jacobbolda.com",
+        icon: ["far", "envelope"]
+      },
+      {
+        url: "https://twitter.com/jacobbolda",
+        text: "@jacobbolda",
+        icon: ["fab", "twitter"]
+      },
+      {
+        url: "https://linkedin.com/in/bolda",
+        text: "linkedin.com/in/bolda",
+        icon: ["fab", "linkedin"]
+      },
+      {
+        url: "https://github.com/jbolda",
+        text: "github.com/jbolda",
+        icon: ["fab", "github"]
+      },
+      {
+        url: "https://keybase.io/jbolda",
+        text: "keybase.io/jbolda",
+        icon: ["fab", "keybase"]
+      },
+      {
+        url: "https://angel.co/jacobbolda",
+        text: "angel.co/jacobbolda",
+        icon: ["fab", "angellist"]
+      },
+      {
+        url: "http://www.jbolda.com/photo",
+        text: "My Photographs",
+        icon: ["fas", "camera"]
+      }
     ],
-    navLinks: [
-      { url: "", text: "" }
-    ]
+    navLinks: [{ url: "", text: "" }]
   },
   __experimentalThemes: [
     {

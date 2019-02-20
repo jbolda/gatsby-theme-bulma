@@ -1,7 +1,7 @@
-const Debug = require('debug')
-const path = require('path')
-const fs = require('fs')
-const util = require('util')
+const Debug = require("debug");
+const path = require("path");
+const fs = require("fs");
+const util = require("util");
 
 /**
  * When shipping NPM modules, they typically need to be either
@@ -13,46 +13,46 @@ const util = require('util')
  * https://github.com/ChristopherBiscardi/gatsby-theme-examples/blob/master/themes/gatsby-theme-blog/gatsby-node.js
  */
 exports.onCreateWebpackConfig = ({ stage, loaders, plugins, actions }) => {
-  const debug = Debug('gatsby-theme-bulma:onCreateWebpackConfig')
-  debug('ensuring Webpack will compile theme code')
+  const debug = Debug("gatsby-theme-bulma:onCreateWebpackConfig");
+  debug("ensuring Webpack will compile theme code");
   actions.setWebpackConfig({
     module: {
       rules: [
         {
           test: /\.js$/,
-          include: path.dirname(require.resolve('gatsby-theme-bulma-core')),
-          use: [loaders.js()],
-        },
-      ],
+          include: path.dirname(require.resolve("gatsby-theme-bulma-core")),
+          use: [loaders.js()]
+        }
+      ]
     },
     resolve: {
       alias: {
-        gatsbyThemeBulmaCache: path.resolve('.cache/gatsby-theme-bulma/')
+        gatsbyThemeBulmaCache: path.resolve(".cache/gatsby-theme-bulma/")
       }
     }
-  })
-}
+  });
+};
 
 exports.onPreExtractQueries = async ({}, options) => {
   const defaultPalette = {
     colors: {
-      P1: '#000000',
-      P2: '#192c3b',
-      P3: '#52777d',
-      P4: '#9ebba9',
-      P5: '#f4f4f4',
+      P1: "#000000",
+      P2: "#192c3b",
+      P3: "#52777d",
+      P4: "#9ebba9",
+      P5: "#f4f4f4"
     }
-  }
-  const palette = options.palette || defaultPalette
-  const filePath = `./.cache/gatsby-theme-bulma/`
+  };
+  const palette = options.palette || defaultPalette;
+  const filePath = `./.cache/gatsby-theme-bulma/`;
 
   const uservars = Object.keys(palette.colors).reduce((builtUpString, key) => {
-    const coerceString = `$${key}: ${palette.colors[key]};\n`
-    return `${builtUpString}${coerceString}`
-  }, '')
-  const paletteOutput = `export default ${util.inspect(palette)}`
+    const coerceString = `$${key}: ${palette.colors[key]};\n`;
+    return `${builtUpString}${coerceString}`;
+  }, "");
+  const paletteOutput = `export default ${util.inspect(palette)}`;
 
-  await fs.mkdir(filePath, { recursive: true }, (err) => {
+  await fs.mkdir(filePath, { recursive: true }, err => {
     if (err) throw err;
     fs.writeFile(`${filePath}_uservars.scss`, uservars, err => {
       if (err) throw err;
@@ -61,4 +61,4 @@ exports.onPreExtractQueries = async ({}, options) => {
       if (err) throw err;
     });
   });
-}
+};

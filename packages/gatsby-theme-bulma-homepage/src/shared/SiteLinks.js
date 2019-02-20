@@ -1,5 +1,5 @@
 import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class SiteLinks extends React.Component {
   render() {
@@ -12,8 +12,7 @@ class SiteLinks extends React.Component {
           {siteMetadata.contactLinks.map(link => (
             <li key={link.text}>
               <a href={link.url}>
-                <FontAwesomeIcon icon={link.icon} />{" "}
-                {link.text}
+                <FontAwesomeIcon icon={link.icon} /> {link.text}
               </a>
             </li>
           ))}

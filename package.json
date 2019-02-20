@@ -3,7 +3,9 @@
   "author": "Jacob Bolda <me@jacobbolda.com>",
   "scripts": {
     "lerna": "lerna",
-    "bootstrap": "lerna bootstrap"
+    "bootstrap": "lerna bootstrap",
+    "prettier": "prettier \"**/*.{js,md,css,scss,yaml,yml}\"",
+    "format": "yarn run prettier -- --write"
   },
   "repository": "git+https://github.com/jbolda/gatsby-theme-bulma.git",
   "keywords": [
@@ -17,7 +19,8 @@
   "homepage": "https://github.com/jbolda/gatsby-theme-bulma#readme",
   "dependencies": {},
   "devDependencies": {
-    "lerna": "^3.8.0"
+    "lerna": "^3.8.0",
+    "prettier": "^1.16.4"
   },
   "engines": {
     "yarn": "^1.2.1",

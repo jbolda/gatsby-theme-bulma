@@ -37,9 +37,7 @@ class SimpleChrome extends React.Component {
     };
 
     return (
-      <SimpleBlogPostLayout
-        location={this.props.location}
-      >
+      <SimpleBlogPostLayout location={this.props.location}>
         <HeroImage hero={this.props.hero} />
         <BlogSection
           props={this.props}

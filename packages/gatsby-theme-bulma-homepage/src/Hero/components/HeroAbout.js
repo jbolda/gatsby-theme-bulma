@@ -1,26 +1,26 @@
 import React from "react";
-import { StaticQuery, graphql } from 'gatsby';
+import { StaticQuery, graphql } from "gatsby";
 import SiteLinks from "../../shared/SiteLinks";
 
-const HeroAbout = ({site, about}) => (
-        <section className="hero is-medium">
-          <div className="hero-body">
-            <div className="columns">
-              <div className="column is-one-quarter">
-                <SiteLinks site={site} />
-              </div>
-              <div className="column">
-                <div
-                  className="content"
-                  dangerouslySetInnerHTML={{
-                    __html: about.childMarkdownRemark.html
-                  }}
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-)
+const HeroAbout = ({ site, about }) => (
+  <section className="hero is-medium">
+    <div className="hero-body">
+      <div className="columns">
+        <div className="column is-one-quarter">
+          <SiteLinks site={site} />
+        </div>
+        <div className="column">
+          <div
+            className="content"
+            dangerouslySetInnerHTML={{
+              __html: about.childMarkdownRemark.html
+            }}
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+);
 
 export default props => (
   <StaticQuery
@@ -45,6 +45,8 @@ export default props => (
         }
       }
     `}
-    render={queryData => <HeroAbout site={queryData.site} about={queryData.about} {...props} />}
+    render={queryData => (
+      <HeroAbout site={queryData.site} about={queryData.about} {...props} />
+    )}
   />
 );

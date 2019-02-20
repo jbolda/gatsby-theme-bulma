@@ -1,46 +1,59 @@
-const Debug = require('debug')
-const path = require('path')
+const Debug = require("debug");
+const path = require("path");
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
-  let slug
+  const { createNodeField } = actions;
+  let slug;
   if (node.internal.type === `MarkdownRemark`) {
     try {
-      const fileNode = getNode(node.parent)
-      const parsedFilePath = path.parse(fileNode.relativePath)
+      const fileNode = getNode(node.parent);
+      const parsedFilePath = path.parse(fileNode.relativePath);
 
       if (parsedFilePath.name !== `index` && parsedFilePath.dir !== ``) {
-        slug = `/${parsedFilePath.dir}/${parsedFilePath.name}/`
+        slug = `/${parsedFilePath.dir}/${parsedFilePath.name}/`;
       } else if (parsedFilePath.dir === ``) {
-        slug = `/${parsedFilePath.name}/`
+        slug = `/${parsedFilePath.name}/`;
       } else {
-        slug = `/${parsedFilePath.dir}/`
+        slug = `/${parsedFilePath.dir}/`;
       }
 
       // Add slug as a field on the node.
-      createNodeField({ node, name: `slug`, value: slug })
-      createNodeField({ node, name: `sourceInstanceName`, value: fileNode.sourceInstanceName})
-      createNodeField({ node, name: `heroImageSet`, value: !!node.frontmatter.heroImage})
+      createNodeField({ node, name: `slug`, value: slug });
+      createNodeField({
+        node,
+        name: `sourceInstanceName`,
+        value: fileNode.sourceInstanceName
+      });
+      createNodeField({
+        node,
+        name: `heroImageSet`,
+        value: !!node.frontmatter.heroImage
+      });
     } catch (error) {
       // nil
-      console.log(error)
+      console.log(error);
     }
-
   }
-}
+};
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
   return new Promise((resolve, reject) => {
-    const mdBlogPost = require.resolve(`./src/Simple/templates/SimpleBlogPostTemplate.js`)
-    const mdBlogPostWithoutImage = require.resolve(`./src/Simple/templates/SimpleBlogPostTemplateWithoutImage.js`)
+    const mdBlogPost = require.resolve(
+      `./src/Simple/templates/SimpleBlogPostTemplate.js`
+    );
+    const mdBlogPostWithoutImage = require.resolve(
+      `./src/Simple/templates/SimpleBlogPostTemplateWithoutImage.js`
+    );
 
     resolve(
       graphql(
         `
           {
-            allMarkdownRemark(filter: {fields: {sourceInstanceName: {eq: "articles"}}}) {
+            allMarkdownRemark(
+              filter: { fields: { sourceInstanceName: { eq: "articles" } } }
+            ) {
               edges {
                 node {
                   frontmatter {
@@ -57,28 +70,30 @@ exports.createPages = ({ graphql, actions }) => {
         `
       ).then(result => {
         if (result.errors) {
-          console.log(result.errors)
-          console.log(result)
-          reject(result.errors)
+          console.log(result.errors);
+          console.log(result);
+          reject(result.errors);
         }
 
         result.data.allMarkdownRemark.edges.forEach(edge => {
           if (edge.node.frontmatter.path) {
             createPage({
               path: edge.node.frontmatter.path, // required
-              component: edge.node.fields.heroImageSet ? mdBlogPost : mdBlogPostWithoutImage,
+              component: edge.node.fields.heroImageSet
+                ? mdBlogPost
+                : mdBlogPostWithoutImage,
               context: {
                 slug: edge.node.fields.slug
-              },
-            })
+              }
+            });
           }
-        })
+        });
 
-        return
+        return;
       })
-    )
-  })
-}
+    );
+  });
+};
 
 /**
  * When shipping NPM modules, they typically need to be either
@@ -90,17 +105,17 @@ exports.createPages = ({ graphql, actions }) => {
  * https://github.com/ChristopherBiscardi/gatsby-theme-examples/blob/master/themes/gatsby-theme-blog/gatsby-node.js
  */
 exports.onCreateWebpackConfig = ({ stage, loaders, plugins, actions }) => {
-  const debug = Debug('gatsby-theme-bulma:onCreateWebpackConfig')
-  debug('ensuring Webpack will compile theme code')
+  const debug = Debug("gatsby-theme-bulma:onCreateWebpackConfig");
+  debug("ensuring Webpack will compile theme code");
   actions.setWebpackConfig({
     module: {
       rules: [
         {
           test: /\.js$/,
-          include: path.dirname(require.resolve('gatsby-theme-bulma-blog')),
-          use: [loaders.js()],
-        },
-      ],
-    },
-  })
-}
+          include: path.dirname(require.resolve("gatsby-theme-bulma-blog")),
+          use: [loaders.js()]
+        }
+      ]
+    }
+  });
+};

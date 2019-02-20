@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import palette from 'gatsbyThemeBulmaCache/palette.js'
+import palette from "gatsbyThemeBulmaCache/palette.js";
 
 class SimpleTopNav extends React.Component {
   constructor(props) {
@@ -19,39 +19,53 @@ class SimpleTopNav extends React.Component {
 
   render() {
     return (
-      <nav className="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+      <nav
+        className="navbar is-fixed-top"
+        role="navigation"
+        aria-label="main navigation"
+      >
         <div className="navbar-brand">
           <Link
             to="/"
             className="navbar-item"
-            style={this.props.location.pathname === '/' ?
-              {backgroundColor: palette.colors.P5}
-              : {}
+            style={
+              this.props.location.pathname === "/"
+                ? { backgroundColor: palette.colors.P5 }
+                : {}
             }
-            >
+          >
             <span
               className="title"
-              style={this.props.location.pathname === '/' ? {color: palette.colors.P2} : {color: palette.colors.P5}}
-              >
-              {this.props.logo ? 
-                  <Logo
-                  icon={!!this.props.logo.inverse && this.props.location.pathname !== '/' ? 
-                  this.props.logo.inverse
-                  : this.props.logo.data}
+              style={
+                this.props.location.pathname === "/"
+                  ? { color: palette.colors.P2 }
+                  : { color: palette.colors.P5 }
+              }
+            >
+              {this.props.logo ? (
+                <Logo
+                  icon={
+                    !!this.props.logo.inverse &&
+                    this.props.location.pathname !== "/"
+                      ? this.props.logo.inverse
+                      : this.props.logo.data
+                  }
                   alt={this.props.logo.alt}
                 />
-                : this.props.siteMetadata.siteTitle}
+              ) : (
+                this.props.siteMetadata.siteTitle
+              )}
             </span>
           </Link>
           {!this.props.siteMetadata.navLinks ? null : (
             <button
               className={
                 this.state.hamburgerActive
-                  ? 'navbar-burger is-active'
-                  : 'navbar-burger'
+                  ? "navbar-burger is-active"
+                  : "navbar-burger"
               }
               aria-label="menu"
-              aria-expanded={this.state.hamburgerActive ? 'true' : 'false'}
+              aria-expanded={this.state.hamburgerActive ? "true" : "false"}
               style={{ color: palette.colors.P5 }}
               onClick={this.toggleHamburgerMenu}
             >
@@ -61,21 +75,29 @@ class SimpleTopNav extends React.Component {
             </button>
           )}
         </div>
-        {!this.props.siteMetadata.navLinks ? null : 
-          this.props.siteMetadata.navLinks[0].text === "" ? null :
-          (
+        {!this.props.siteMetadata.navLinks ? null : this.props.siteMetadata
+            .navLinks[0].text === "" ? null : (
           <div
             className={
-              this.state.hamburgerActive ? 'navbar-menu is-active' : 'navbar-menu'
+              this.state.hamburgerActive
+                ? "navbar-menu is-active"
+                : "navbar-menu"
             }
           >
             <div className="navbar-end">
               {this.props.siteMetadata.navLinks.map(link => (
                 <Link
-                key={link.text}
-                to={link.url}
-                className="navbar-item"
-                style={this.props.location.pathname === link.url ? {backgroundColor: palette.colors.P5, color: palette.colors.P2} : {}}
+                  key={link.text}
+                  to={link.url}
+                  className="navbar-item"
+                  style={
+                    this.props.location.pathname === link.url
+                      ? {
+                          backgroundColor: palette.colors.P5,
+                          color: palette.colors.P2
+                        }
+                      : {}
+                  }
                 >
                   {link.text}
                 </Link>
@@ -84,7 +106,7 @@ class SimpleTopNav extends React.Component {
           </div>
         )}
       </nav>
-    )
+    );
   }
 }
 

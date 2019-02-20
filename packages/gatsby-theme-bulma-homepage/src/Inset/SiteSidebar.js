@@ -32,7 +32,9 @@ class SiteSidebar extends React.Component {
                 {siteMetadata.siteTitle}
               </Link>
             </p>
-            <p style={{ fontStyle: `italic` }}>{siteMetadata.siteDescription}</p>
+            <p style={{ fontStyle: `italic` }}>
+              {siteMetadata.siteDescription}
+            </p>
           </div>
         </div>
         <div className="is-hidden-mobile">

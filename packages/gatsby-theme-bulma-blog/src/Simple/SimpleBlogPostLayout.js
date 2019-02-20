@@ -1,10 +1,10 @@
-import React from "react"
-import { StaticQuery, graphql } from 'gatsby';
-import SimpleNav from "gatsby-theme-bulma-layout/src/Simple/SimpleNav"
+import React from "react";
+import { StaticQuery, graphql } from "gatsby";
+import SimpleNav from "gatsby-theme-bulma-layout/src/Simple/SimpleNav";
 
 class SimpleBlogPostLayout extends React.Component {
   render() {
-    let {siteMetadata} = this.props.site
+    let { siteMetadata } = this.props.site;
 
     return (
       <SimpleNav site={this.props.site} location={this.props.location}>
@@ -21,7 +21,7 @@ class SimpleBlogPostLayout extends React.Component {
           </div>
         </section>
       </SimpleNav>
-    )
+    );
   }
 }
 
@@ -39,6 +39,8 @@ export default props => (
         }
       }
     `}
-    render={queryData => <SimpleBlogPostLayout site={queryData.site} {...props} />}
+    render={queryData => (
+      <SimpleBlogPostLayout site={queryData.site} {...props} />
+    )}
   />
 );

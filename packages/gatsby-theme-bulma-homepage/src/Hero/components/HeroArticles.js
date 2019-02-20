@@ -1,57 +1,65 @@
 import React from "react";
-import { Link, StaticQuery, graphql } from 'gatsby';
+import { Link, StaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 
-const HeroArticles = props => props.posts.edges.map(post => (
-      <div className="column is-one-third" key={post.node.frontmatter.path}>
+const HeroArticles = props =>
+  props.posts.edges.map(post => (
+    <div className="column is-one-third" key={post.node.frontmatter.path}>
       <div className="card">
-      <div className="card-image">
-        {post.node.frontmatter.heroImage && props.pictures.edges ?
-          <Img
+        <div className="card-image">
+          {post.node.frontmatter.heroImage && props.pictures.edges ? (
+            <Img
               className="image"
               Tag="figure"
-              fluid={sortThroughPictures(post.node.frontmatter.heroImage, props.pictures.edges).childImageSharp.fluid}
+              fluid={
+                sortThroughPictures(
+                  post.node.frontmatter.heroImage,
+                  props.pictures.edges
+                ).childImageSharp.fluid
+              }
             />
-            :
-            null
-          }
-      </div>
-      <div className="card-content">
+          ) : null}
+        </div>
+        <div className="card-content">
           <div className="heading">
-          <div className="level">
+            <div className="level">
               <h4 className="level-left">
-              <time
+                <time
                   className="subtitle is-6"
                   dateTime={
-                  post.node.frontmatter.updatedPretty || post.node.frontmatter.writtenPretty
+                    post.node.frontmatter.updatedPretty ||
+                    post.node.frontmatter.writtenPretty
                   }
-              >
-                  {post.node.frontmatter.updatedPretty || post.node.frontmatter.writtenPretty}
-              </time>
+                >
+                  {post.node.frontmatter.updatedPretty ||
+                    post.node.frontmatter.writtenPretty}
+                </time>
               </h4>
               <h5 className="tag is-thirdary is-6 level-right">
-              {post.node.frontmatter.category}
+                {post.node.frontmatter.category}
               </h5>
-          </div>
-          <h1 className="title">
-              <Link to={post.node.frontmatter.path}>{post.node.frontmatter.title}</Link>
-          </h1>
+            </div>
+            <h1 className="title">
+              <Link to={post.node.frontmatter.path}>
+                {post.node.frontmatter.title}
+              </Link>
+            </h1>
           </div>
           <div className="content">
-          <p
+            <p
               dangerouslySetInnerHTML={{
-              __html: post.node.frontmatter.description
+                __html: post.node.frontmatter.description
               }}
-          />
+            />
           </div>
           <nav className="level">
-          <div className="level-left">
+            <div className="level-left">
               <span className="level-item">
-              <Link to={post.node.frontmatter.path}>Read</Link>
+                <Link to={post.node.frontmatter.path}>Read</Link>
               </span>
-          </div>
+            </div>
           </nav>
-      </div>
+        </div>
       </div>
     </div>
   ));
@@ -60,7 +68,10 @@ export default props => (
   <StaticQuery
     query={graphql`
       query GatsbyThemeBulmaHomepageHeroArticles {
-        posts: allMarkdownRemark(filter: {fields: {sourceInstanceName: {eq: "articles"}}}, limit: 6) {
+        posts: allMarkdownRemark(
+          filter: { fields: { sourceInstanceName: { eq: "articles" } } }
+          limit: 6
+        ) {
           edges {
             node {
               fields {
@@ -83,7 +94,13 @@ export default props => (
             }
           }
         }
-        pictures: allFile(filter: {sourceInstanceName: {eq: "articles"}, extension: {eq: "jpg"}}, limit: 6) {
+        pictures: allFile(
+          filter: {
+            sourceInstanceName: { eq: "articles" }
+            extension: { eq: "jpg" }
+          }
+          limit: 6
+        ) {
           edges {
             node {
               base
@@ -102,11 +119,20 @@ export default props => (
         }
       }
     `}
-    render={queryData => <HeroArticles posts={queryData.posts} pictures={queryData.pictures} {...props} />}
+    render={queryData => (
+      <HeroArticles
+        posts={queryData.posts}
+        pictures={queryData.pictures}
+        {...props}
+      />
+    )}
   />
 );
 
-
-const sortThroughPictures = (article, pictures) => pictures.reduce(
-  (finalVal, picture) => finalVal || (article && picture.node.base === article.base ? picture.node : finalVal) 
-  , null)
+const sortThroughPictures = (article, pictures) =>
+  pictures.reduce(
+    (finalVal, picture) =>
+      finalVal ||
+      (article && picture.node.base === article.base ? picture.node : finalVal),
+    null
+  );

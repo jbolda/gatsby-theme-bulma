@@ -2,7 +2,6 @@
 const path = require("path");
 const Debug = require("debug");
 
-
 const withThemePath = (relativePath, root) => {
   const debug = Debug("gatsby-theme:with-theme-path");
   debug("resolving", relativePath);
@@ -33,17 +32,18 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sass`,
       options: {
-        includePaths: [
-          '.cache/gatsby-theme-bulma',
-        ]
+        includePaths: [".cache/gatsby-theme-bulma"]
       }
     },
     `gatsby-plugin-react-helmet`,
     {
-      resolve: 'gatsby-plugin-typography',
+      resolve: "gatsby-plugin-typography",
       options: {
-        pathToConfigModule: withThemePath('./src/utils/typography.js', require.resolve('.')),
-      },
+        pathToConfigModule: withThemePath(
+          "./src/utils/typography.js",
+          require.resolve(".")
+        )
+      }
     }
-  ],
-}
+  ]
+};

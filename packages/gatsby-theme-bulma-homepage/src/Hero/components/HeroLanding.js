@@ -1,34 +1,36 @@
 import React from "react";
 import Img from "gatsby-image";
-import { StaticQuery, graphql } from 'gatsby';
+import { StaticQuery, graphql } from "gatsby";
 
-const HeroLanding = ({profile, site}) => (
-        <section className="hero is-small is-secondary edge--bottom">
-          <div className="hero-body">
-            <div className="columns is-centered is-vcentered">
-              <div className="column is-one-third">
-                <Img
-                  className="image"
-                  Tag="figure"
-                  fluid={profile.childImageSharp.fluid}
-                />
-              </div>
-              <div className="column">
-                <div className="columns is-centered">
-                  <div className="column is-half">
-                    <h3 className="subtitle">Hi, I am</h3>
-                    <h1 className="title">{site.siteMetadata.siteAuthor}</h1>
-                    <h2 className="subtitle">{site.siteMetadata.siteAuthorIdentity}</h2>
-                    <div className="">
-                      <p>{site.siteMetadata.siteLanding}</p>
-                    </div>
-                  </div>
-                </div>
+const HeroLanding = ({ profile, site }) => (
+  <section className="hero is-small is-secondary edge--bottom">
+    <div className="hero-body">
+      <div className="columns is-centered is-vcentered">
+        <div className="column is-one-third">
+          <Img
+            className="image"
+            Tag="figure"
+            fluid={profile.childImageSharp.fluid}
+          />
+        </div>
+        <div className="column">
+          <div className="columns is-centered">
+            <div className="column is-half">
+              <h3 className="subtitle">Hi, I am</h3>
+              <h1 className="title">{site.siteMetadata.siteAuthor}</h1>
+              <h2 className="subtitle">
+                {site.siteMetadata.siteAuthorIdentity}
+              </h2>
+              <div className="">
+                <p>{site.siteMetadata.siteLanding}</p>
               </div>
             </div>
           </div>
-        </section>
-)
+        </div>
+      </div>
+    </div>
+  </section>
+);
 
 export default props => (
   <StaticQuery
@@ -60,6 +62,12 @@ export default props => (
         }
       }
     `}
-    render={queryData => <HeroLanding site={queryData.site} profile={queryData.profile} {...props} />}
+    render={queryData => (
+      <HeroLanding
+        site={queryData.site}
+        profile={queryData.profile}
+        {...props}
+      />
+    )}
   />
 );

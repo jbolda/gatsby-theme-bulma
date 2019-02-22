@@ -1,7 +1,7 @@
 import React from "react";
 import SimpleNav from "gatsby-theme-bulma-layout/src/Simple/SimpleNav";
-import HeroLanding from "./HeroLanding";
-import HeroAbout from "./HeroAbout";
+import HeroLanding from "gatsby-theme-bulma-homepage/src/Hero/components/HeroLanding";
+import HeroAbout from "gatsby-theme-bulma-homepage/src/Hero/components//HeroAbout";
 
 const HeroLayout = props => (
   <SimpleNav location={props.location}>

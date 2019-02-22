@@ -8,7 +8,9 @@ description: "A new beginning to delivering content and math."
 heroImage: milwaukee-art-museum.jpg
 ---
 
-Hello everyone! I am setting up a sort of quasi-blog. I enjoy solving problems, travel, finance, business and programming. You may find various calculators that can run directly in your browser. I love traveling, and fully intend to chorincle my past adventures (with photos!) and thoughts on my travels. You may also find some productivity hacks here because a good business loves efficiency. I am a structural engineer by trade so you may see some musings on the industry, and meta-type thoughts on my other projects. Feel free to learn more about my story on my about page or contact me with any questions. I would love to see an email from you!
+Quod illum dolores an usu. Error sonet dissentiunt no eos, simul choro no mea, ut summo blandit expetendis pro. Omittam liberavisse ex has. Vocibus habemus officiis ex eum.
+
+Indoctum recteque no cum, imperdiet dissentiet ei est. Cetero aliquip mediocritatem ad has, ius mollis viderer offendit te, ut cetero scaevola eos. Splendide efficiendi nec ex. Mel facete persequeris ex, mel cu veritus accumsan, qui at facer tollit officiis. Wisi facilisi praesent no eum, eum partem inermis te, id vix adhuc dicat.
 
 > “And then there is the most dangerous risk of all — the risk of spending your life not doing what you want on the bet you can buy yourself the freedom to do it later.”
 > – Randy Komisar

@@ -1,6 +1,6 @@
 import React from "react";
-import HeroLayout from "./components/HeroLayout.js";
-import HeroArticles from "./components/HeroArticles.js";
+import HeroLayout from "./components/HeroLayout";
+import HeroArticles from "./components/HeroArticles";
 
 const HeroTemplate = props => (
   <HeroLayout {...props}>

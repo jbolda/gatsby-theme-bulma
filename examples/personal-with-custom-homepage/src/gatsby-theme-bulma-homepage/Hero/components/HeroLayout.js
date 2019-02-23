@@ -8,8 +8,8 @@ const HeroLayout = props => (
     <HeroLanding />
     <HeroAbout />
     {props.children}
-    <section className="section is-fourthary edge--top">
-      <h1 className="title">Recipess</h1>
+    <section className="section is-fifthary edge--top--reverse">
+      <h1 className="title">Recipes</h1>
       <h2 className="subtitle">
         We enjoy cooking. These are a few of our favorites eaten recently.
       </h2>

@@ -36,11 +36,11 @@ exports.onCreateWebpackConfig = ({ stage, loaders, plugins, actions }) => {
 exports.onPreExtractQueries = async ({}, options) => {
   const defaultPalette = {
     colors: {
-      P1: "#000000",
-      P2: "#192c3b",
-      P3: "#52777d",
-      P4: "#9ebba9",
-      P5: "#f4f4f4"
+      P1: "$green",
+      P2: "$turquoise",
+      P3: "$blue",
+      P4: "$cyan",
+      P5: "$white-ter"
     }
   };
   const palette = options.palette || defaultPalette;

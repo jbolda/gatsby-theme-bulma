@@ -48,13 +48,13 @@ export default props => (
             }
           }
         }
-        profile: file(relativePath: { eq: "profile.png" }) {
+        profile: file(relativePath: { eq: "avatar.png" }) {
           childImageSharp {
             fluid(
-              maxWidth: 500
-              maxHeight: 500
-              quality: 90
-              duotone: { highlight: "#bdc4bf", shadow: "#192C3B" }
+              maxWidth: 500,
+              maxHeight: 500,
+              quality: 90,
+              grayscale: true
             ) {
               ...GatsbyImageSharpFluid
             }

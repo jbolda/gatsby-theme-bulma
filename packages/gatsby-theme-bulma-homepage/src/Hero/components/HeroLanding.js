@@ -16,12 +16,12 @@ const HeroLanding = ({ profile, site }) => (
         <div className="column">
           <div className="columns is-centered">
             <div className="column is-half">
-              <h3 className="subtitle">Hi, I am</h3>
-              <h1 className="title">{site.siteMetadata.siteAuthor}</h1>
-              <h2 className="subtitle">
+              <h3 className="subtitle has-text-thirdary">Hi, I am</h3>
+              <h1 className="title has-text-thirdary">{site.siteMetadata.siteAuthor}</h1>
+              <h2 className="subtitle has-text-thirdary">
                 {site.siteMetadata.siteAuthorIdentity}
               </h2>
-              <div className="">
+              <div className="has-text-thirdary">
                 <p>{site.siteMetadata.siteLanding}</p>
               </div>
             </div>

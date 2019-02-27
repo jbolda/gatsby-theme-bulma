@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 import MasterLayout from "gatsby-theme-bulma-core/src/components/MasterLayout";
 import SimpleTopNav from "./components/SimpleTopNav";
+import palette from "gatsbyThemeBulmaCache/palette.js";
 
 const SimpleNav = ({ location, site, children, logo }) => (
   <MasterLayout siteMetadata={site.siteMetadata} id="SimpleLayout">
@@ -14,10 +15,10 @@ const SimpleNav = ({ location, site, children, logo }) => (
     {children}
     <section className="footer">
       <div className="container content has-text-centered">
-        <p className="copyright">
+        <p className="copyright has-text-thirdary">
           Made with <Heart style={{ marginBottom: `-7px` }} /> by
           {` `}
-          <a className="copyright" href={site.siteMetadata.siteContact}>
+          <a className="copyright has-text-thirdary" href={site.siteMetadata.siteContact}>
             {site.siteMetadata.siteAuthor}
           </a>
         </p>
@@ -69,4 +70,4 @@ const Heart = ({ height, width, fill, style }) => (
   </svg>
 );
 
-Heart.defaultProps = { height: "25px", width: "25px", fill: "#F4F4F4" };
+Heart.defaultProps = { height: "25px", width: "25px", fill: palette.colors.P3 };

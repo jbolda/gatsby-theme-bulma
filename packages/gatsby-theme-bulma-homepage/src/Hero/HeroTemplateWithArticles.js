@@ -4,7 +4,7 @@ import HeroArticles from "./components/HeroArticles";
 
 const HeroTemplate = props => (
   <HeroLayout {...props}>
-    <section className="section is-fourthary edge--top">
+    <section className="section is-thirdary edge--top">
       <h1 className="title">Articles</h1>
       <h2 className="subtitle">The Most Recent</h2>
       <hr />

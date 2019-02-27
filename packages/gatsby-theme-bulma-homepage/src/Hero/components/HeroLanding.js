@@ -3,7 +3,7 @@ import Img from "gatsby-image";
 import { StaticQuery, graphql } from "gatsby";
 
 const HeroLanding = ({ profile, site }) => (
-  <section className="hero is-small is-secondary edge--bottom">
+  <section className="hero is-small is-primary edge--bottom">
     <div className="hero-body">
       <div className="columns is-centered is-vcentered">
         <div className="column is-one-third">

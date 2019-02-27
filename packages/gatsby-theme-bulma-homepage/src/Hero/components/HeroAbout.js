@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from "gatsby";
 import SiteLinks from "../../shared/SiteLinks";
 
 const HeroAbout = ({ site, about }) => (
-  <section className="hero is-medium">
+  <section className="hero is-secondary is-medium">
     <div className="hero-body">
       <div className="columns">
         <div className="column is-one-quarter">

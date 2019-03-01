@@ -1,7 +1,7 @@
 const Debug = require("debug");
 const path = require("path");
 
-exports.createPages = ({ actions, store }) => {
+exports.createPages = ({ actions, store, options }) => {
   const { createPage } = actions;
 
   const hasBlogInstalled = store
@@ -14,7 +14,7 @@ exports.createPages = ({ actions, store }) => {
 
   return new Promise((resolve, reject) => {
     let homepage;
-    if (hasBlogInstalled) {
+    if (hasBlogInstalled && options.showArticles) {
       homepage = require.resolve(`./src/Hero/HeroTemplateWithArticles.js`);
     } else {
       homepage = require.resolve(`./src/Hero/HeroTemplatePlain.js`);

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 import MasterLayout from "gatsby-theme-bulma-core/src/components/MasterLayout";
 import SimpleTopNav from "./components/SimpleTopNav";
-import colors from "gatsby-theme-bulma-core/src/css/colors.js";
+import colors from "gatsby-theme-bulma-core/src/css/colors";
 
 const SimpleNav = ({ location, site, children, logo }) => (
   <MasterLayout siteMetadata={site.siteMetadata} id="SimpleLayout">

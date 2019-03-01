@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import colors from "gatsby-theme-bulma-core/src/css/colors.js";
+import colors from "gatsby-theme-bulma-core/src/css/colors";
 
 class SimpleTopNav extends React.Component {
   constructor(props) {

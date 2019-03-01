@@ -3,8 +3,8 @@
 @import "~bulma/sass/utilities/initial-variables";
 @import "~bulma/sass/utilities/functions";
 
-@import "./colors.scss";
-@import "./palette.scss";
+@import "./customColors.scss";
+@import "./customPalette.scss";
 
 $secondary: $P2;
 $secondary-invert: findColorInvert($secondary);

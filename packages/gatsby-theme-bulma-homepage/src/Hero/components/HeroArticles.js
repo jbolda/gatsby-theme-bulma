@@ -2,19 +2,19 @@ import React from "react";
 import { Link, StaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 
-const HeroArticles = props =>
-  props.posts.edges.map(post => (
+const HeroArticles = ({posts, pictures, swatch}) =>
+  posts.edges.map(post => (
     <div className="column is-one-third" key={post.node.frontmatter.path}>
       <div className="card">
         <div className="card-image">
-          {post.node.frontmatter.heroImage && props.pictures.edges ? (
+          {post.node.frontmatter.heroImage && pictures.edges ? (
             <Img
               className="image"
               Tag="figure"
               fluid={
                 sortThroughPictures(
                   post.node.frontmatter.heroImage,
-                  props.pictures.edges
+                  pictures.edges
                 ).childImageSharp.fluid
               }
             />
@@ -35,7 +35,7 @@ const HeroArticles = props =>
                     post.node.frontmatter.writtenPretty}
                 </time>
               </h4>
-              <h5 className={`tag is-${props.swatch || 'thirdary'} is-6 level-right`}>
+              <h5 className={`tag is-${swatch || 'thirdary'} is-6 level-right`}>
                 {post.node.frontmatter.category}
               </h5>
             </div>
@@ -120,11 +120,18 @@ export default props => (
       }
     `}
     render={queryData => (
-      <HeroArticles
-        posts={queryData.posts}
-        pictures={queryData.pictures}
-        {...props}
-      />
+      <section className={`section is-${props.swatch || 'thirdary'} ${props.edge || 'edge--top'}`}>
+        <h1 className="title">Articles</h1>
+        <h2 className="subtitle">The Most Recent</h2>
+        <hr />
+        <div className="columns is-multiline">
+          <HeroArticles
+            posts={queryData.posts}
+            pictures={queryData.pictures}
+            {...props}
+          />
+        </div>
+      </section>
     )}
   />
 );

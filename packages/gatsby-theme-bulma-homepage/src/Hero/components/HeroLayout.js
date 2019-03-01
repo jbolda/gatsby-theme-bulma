@@ -5,7 +5,7 @@ import HeroAbout from "./HeroAbout";
 
 const HeroLayout = props => (
   <SimpleNav location={props.location}>
-    <HeroLanding swatch='primary' textColor='' />
+    <HeroLanding swatch='primary' />
     <HeroAbout swatch='secondary' />
     {props.children}
   </SimpleNav>

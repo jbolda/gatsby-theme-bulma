@@ -4,14 +4,7 @@ import HeroArticles from "./components/HeroArticles";
 
 const HeroTemplate = props => (
   <HeroLayout {...props}>
-    <section className="section is-thirdary edge--top">
-      <h1 className="title">Articles</h1>
-      <h2 className="subtitle">The Most Recent</h2>
-      <hr />
-      <div className="columns is-multiline">
-        <HeroArticles swatch='thirdary' />
-      </div>
-    </section>
+    <HeroArticles swatch='thirdary' />
     {props.children}
   </HeroLayout>
 );

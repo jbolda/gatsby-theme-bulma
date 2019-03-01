@@ -2,8 +2,8 @@ import React from "react";
 import Img from "gatsby-image";
 import { StaticQuery, graphql } from "gatsby";
 
-const HeroLanding = ({ profile, site }) => (
-  <section className="hero is-small is-primary edge--bottom">
+const HeroLanding = ({ profile, site, swatch, textColor }) => (
+  <section className={`hero is-small is-${swatch || 'primary'} edge--bottom`}>
     <div className="hero-body">
       <div className="columns is-centered is-vcentered">
         <div className="column is-one-third">
@@ -16,12 +16,12 @@ const HeroLanding = ({ profile, site }) => (
         <div className="column">
           <div className="columns is-centered">
             <div className="column is-half">
-              <h3 className="subtitle has-text-thirdary">Hi, I am</h3>
-              <h1 className="title has-text-thirdary">{site.siteMetadata.siteAuthor}</h1>
-              <h2 className="subtitle has-text-thirdary">
+              <h3 className={`subtitle ${textColor || 'has-text-thirdary'}`}>Hi, I am</h3>
+              <h1 className={`title ${textColor || 'has-text-thirdary'}`}>{site.siteMetadata.siteAuthor}</h1>
+              <h2 className={`subtitle ${textColor || 'has-text-thirdary'}`}>
                 {site.siteMetadata.siteAuthorIdentity}
               </h2>
-              <div className="has-text-thirdary">
+              <div className={`${textColor || 'has-text-thirdary'}`}>
                 <p>{site.siteMetadata.siteLanding}</p>
               </div>
             </div>

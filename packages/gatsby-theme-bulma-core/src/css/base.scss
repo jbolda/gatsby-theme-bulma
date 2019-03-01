@@ -3,18 +3,8 @@
 @import "~bulma/sass/utilities/initial-variables";
 @import "~bulma/sass/utilities/functions";
 
-@import "_uservars.scss";
-
-$primary: $P1;
-$light: $P5;
-$dark: $P2;
-$link: $P2;
-$info: $P4;
-$background: $P5;
-$body-background-color: $P4;
-$navbar-background-color: $P1;
-$navbar-item-color: $P5;
-$footer-background-color: $P1;
+@import "./colors.scss";
+@import "./palette.scss";
 
 $secondary: $P2;
 $secondary-invert: findColorInvert($secondary);

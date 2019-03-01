@@ -2,8 +2,8 @@ import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import SiteLinks from "../../shared/SiteLinks";
 
-const HeroAbout = ({ site, about }) => (
-  <section className="hero is-secondary is-medium">
+const HeroAbout = ({ site, about, swatch }) => (
+  <section className={`hero is-${swatch || 'secondary'} is-medium`}>
     <div className="hero-body">
       <div className="columns">
         <div className="column is-one-quarter">

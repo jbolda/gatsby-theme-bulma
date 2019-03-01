@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import palette from "gatsbyThemeBulmaCache/palette.js";
+import colors from "gatsby-theme-bulma-core/src/css/colors.js";
 
 class SimpleTopNav extends React.Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class SimpleTopNav extends React.Component {
             className="navbar-item"
             style={
               this.props.location.pathname === "/"
-                ? { backgroundColor: palette.colors.P5 }
+                ? { backgroundColor: colors.P5 }
                 : {}
             }
           >
@@ -38,8 +38,8 @@ class SimpleTopNav extends React.Component {
               className="title"
               style={
                 this.props.location.pathname === "/"
-                  ? { color: palette.colors.P2 }
-                  : { color: palette.colors.P5 }
+                  ? { color: colors.P2 }
+                  : { color: colors.P5 }
               }
             >
               {this.props.logo ? (
@@ -66,7 +66,7 @@ class SimpleTopNav extends React.Component {
               }
               aria-label="menu"
               aria-expanded={this.state.hamburgerActive ? "true" : "false"}
-              style={{ color: palette.colors.P5 }}
+              style={{ color: colors.P5 }}
               onClick={this.toggleHamburgerMenu}
             >
               <span aria-hidden="true" />
@@ -93,8 +93,8 @@ class SimpleTopNav extends React.Component {
                   style={
                     this.props.location.pathname === link.url
                       ? {
-                          backgroundColor: palette.colors.P5,
-                          color: palette.colors.P2
+                          backgroundColor: colors.P5,
+                          color: colors.P2
                         }
                       : {}
                   }

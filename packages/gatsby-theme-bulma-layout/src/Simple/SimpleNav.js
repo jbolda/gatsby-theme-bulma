@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 import MasterLayout from "gatsby-theme-bulma-core/src/components/MasterLayout";
 import SimpleTopNav from "./components/SimpleTopNav";
-import palette from "gatsbyThemeBulmaCache/palette.js";
+import colors from "gatsby-theme-bulma-core/src/css/colors.js";
 
 const SimpleNav = ({ location, site, children, logo }) => (
   <MasterLayout siteMetadata={site.siteMetadata} id="SimpleLayout">
@@ -70,4 +70,4 @@ const Heart = ({ height, width, fill, style }) => (
   </svg>
 );
 
-Heart.defaultProps = { height: "25px", width: "25px", fill: palette.colors.P3 };
+Heart.defaultProps = { height: "25px", width: "25px", fill: colors.P3 };

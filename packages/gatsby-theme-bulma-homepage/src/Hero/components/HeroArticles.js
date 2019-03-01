@@ -35,7 +35,7 @@ const HeroArticles = props =>
                     post.node.frontmatter.writtenPretty}
                 </time>
               </h4>
-              <h5 className="tag is-thirdary is-6 level-right">
+              <h5 className={`tag is-${props.swatch || 'thirdary'} is-6 level-right`}>
                 {post.node.frontmatter.category}
               </h5>
             </div>

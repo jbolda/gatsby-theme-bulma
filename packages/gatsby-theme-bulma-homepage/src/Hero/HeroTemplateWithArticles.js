@@ -9,7 +9,7 @@ const HeroTemplate = props => (
       <h2 className="subtitle">The Most Recent</h2>
       <hr />
       <div className="columns is-multiline">
-        <HeroArticles />
+        <HeroArticles swatch='thirdary' />
       </div>
     </section>
     {props.children}

@@ -9,7 +9,7 @@ const SimpleNav = ({ location, site, children, logo }) => (
   <MasterLayout siteMetadata={site.siteMetadata} id="SimpleLayout">
     <SimpleTopNav
       siteMetadata={site.siteMetadata}
-      location={location}
+      location={location}s
       logo={logo}
     />
     {children}

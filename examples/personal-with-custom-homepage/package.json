@@ -1,6 +1,6 @@
 {
   "name": "personal-website-with-custom-homepage",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "main": "index.js",
   "private": true,
   "scripts": {
@@ -22,7 +22,7 @@
     "gatsby-theme-bulma-blog": "^2.0.0-alpha.33",
     "gatsby-theme-bulma-core": "^2.0.0-alpha.36",
     "gatsby-theme-bulma-homepage": "^2.0.0-alpha.13",
-    "gatsby-theme-bulma-layout": "^2.0.0-alpha.32",
+    "gatsby-theme-bulma-layout": "^2.0.0-alpha.33",
     "gatsby-transformer-javascript-frontmatter": "^2.0.8",
     "gatsby-transformer-remark": "^2.2.5",
     "gatsby-transformer-sharp": "^2.1.13",

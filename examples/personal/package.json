@@ -1,6 +1,6 @@
 {
   "name": "personal-website",
-  "version": "2.0.11",
+  "version": "2.0.12",
   "main": "index.js",
   "private": true,
   "scripts": {
@@ -21,7 +21,7 @@
     "gatsby-source-filesystem": "2.0.20",
     "gatsby-theme-bulma-blog": "^2.0.0-alpha.33",
     "gatsby-theme-bulma-core": "^2.0.0-alpha.37",
-    "gatsby-theme-bulma-homepage": "^2.0.0-alpha.13",
+    "gatsby-theme-bulma-homepage": "^2.0.0-alpha.14",
     "gatsby-theme-bulma-layout": "^2.0.0-alpha.34",
     "gatsby-transformer-javascript-frontmatter": "^2.0.8",
     "gatsby-transformer-remark": "^2.2.5",

@@ -1,7 +1,7 @@
 const Debug = require("debug");
 const path = require("path");
 
-exports.createPages = ({ actions, store, options }) => {
+exports.createPages = ({ actions, store }) => {
   const { createPage } = actions;
 
   const hasBlogInstalled = store
@@ -14,7 +14,12 @@ exports.createPages = ({ actions, store, options }) => {
 
   return new Promise((resolve, reject) => {
     let homepage;
-    if (hasBlogInstalled && !!options.showArticles) {
+    const plugin = store.getState().plugins.reduce(
+      (acc, plugin) =>
+        plugin.name === `gatsby-theme-bulma-blog` ? plugin : acc,
+      {}
+    )
+    if (hasBlogInstalled && !!plugin.pluginOptions.showArticlesOnHomepage) {
       homepage = require.resolve(`./src/Hero/HeroTemplateWithArticles.js`);
     } else {
       homepage = require.resolve(`./src/Hero/HeroTemplatePlain.js`);

@@ -1,12 +1,13 @@
 const Debug = require("debug");
 const path = require("path");
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions;
+exports.onCreateNode = ({ node, actions, getNode, createNodeId }) => {
+  const { createNodeField, createNode } = actions;
+  const fileNode = getNode(node.parent);
+
   let slug;
   if (node.internal.type === `MarkdownRemark`) {
     try {
-      const fileNode = getNode(node.parent);
       const parsedFilePath = path.parse(fileNode.relativePath);
 
       if (parsedFilePath.name !== `index` && parsedFilePath.dir !== ``) {
@@ -33,6 +34,31 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       // nil
       console.log(error);
     }
+  }
+
+  if (node.internal.type === `MarkdownRemark` && (fileNode.sourceInstanceName === `blog` || fileNode.sourceInstanceName === `articles`)) {
+    const nodeData = {
+      title: node.frontmatter.title,
+      written: node.frontmatter.written,
+      updated: node.frontmatter.updated,
+      path: node.frontmatter.path,
+      category: node.frontmatter.category,
+      description: node.frontmatter.description,
+      heroImage: node.frontmatter.heroImage
+    }
+
+    const blogNode = {
+      id: createNodeId(`${node.id} >>> BlogPost`),
+      children: [],
+      parent: node.id,
+      frontmatter: nodeData,
+      internal: {
+        contentDigest: JSON.stringify(nodeData),
+        type: `BlogPost`,
+      },
+    }
+
+    createNode(blogNode)
   }
 };
 

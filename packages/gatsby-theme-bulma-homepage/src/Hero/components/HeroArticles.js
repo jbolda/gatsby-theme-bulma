@@ -68,15 +68,9 @@ export default props => (
   <StaticQuery
     query={graphql`
       query GatsbyThemeBulmaHomepageHeroArticles {
-        posts: allMarkdownRemark(
-          filter: { fields: { sourceInstanceName: { eq: "articles" } } }
-          limit: 6
-        ) {
+        posts: allBlogPost(limit: 6) {
           edges {
             node {
-              fields {
-                slug
-              }
               frontmatter {
                 title
                 path
@@ -90,7 +84,6 @@ export default props => (
                   base
                 }
               }
-              timeToRead
             }
           }
         }

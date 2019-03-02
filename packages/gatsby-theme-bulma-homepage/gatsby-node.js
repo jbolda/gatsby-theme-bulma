@@ -19,10 +19,11 @@ exports.createPages = ({ actions, store }) => {
         plugin.name === `gatsby-theme-bulma-blog` ? plugin : acc,
       {}
     )
-    if (hasBlogInstalled && !!plugin.pluginOptions.showArticlesOnHomepage) {
-      homepage = require.resolve(`./src/Hero/HeroTemplateWithArticles.js`);
-    } else {
+
+    if (!hasBlogInstalled && !plugin.pluginOptions.showArticlesOnHomepage) {
       homepage = require.resolve(`./src/Hero/HeroTemplatePlain.js`);
+    } else {
+      homepage = require.resolve(`./src/Hero/HeroTemplateWithArticles.js`);
     }
 
     resolve(

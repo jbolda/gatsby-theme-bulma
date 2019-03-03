@@ -20,7 +20,7 @@ exports.createPages = ({ actions, store }) => {
       {}
     )
 
-    if (!hasBlogInstalled && !plugin.pluginOptions.showArticlesOnHomepage) {
+    if (!hasBlogInstalled || !plugin.pluginOptions.showArticlesOnHomepage) {
       homepage = require.resolve(`./src/Hero/HeroTemplatePlain.js`);
     } else {
       homepage = require.resolve(`./src/Hero/HeroTemplateWithArticles.js`);

@@ -36,7 +36,10 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId }) => {
     }
   }
 
-  if (node.internal.type === `MarkdownRemark` && (fileNode.sourceInstanceName === `blog` || fileNode.sourceInstanceName === `articles`)) {
+  if (
+    (node.internal.type === `MarkdownRemark` || node.internal.type === `JavascriptFrontmatter`) &&
+    (fileNode.sourceInstanceName === `blog` || fileNode.sourceInstanceName === `articles`)
+    ) {
     const nodeData = {
       title: node.frontmatter.title,
       written: node.frontmatter.written,

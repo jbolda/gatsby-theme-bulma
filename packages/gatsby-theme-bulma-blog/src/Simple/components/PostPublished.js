@@ -6,14 +6,14 @@ class PostPublished extends React.Component {
     const { frontmatter } = this.props;
 
     let published = frontmatter.updatedPretty ? (
-      <div className="date-published">
+      <div className="date-published has-text-grey-dark">
         <em>
           {`originally published ${frontmatter.writtenPretty}
               and updated ${frontmatter.updatedPretty}`}
         </em>
       </div>
     ) : (
-      <div className="date-published">
+      <div className="date-published has-text-grey-dark">
         <em>{`published ${frontmatter.writtenPretty}`}</em>
       </div>
     );

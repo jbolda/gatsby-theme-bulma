@@ -38,7 +38,7 @@ const BlogSection = ({ props, adjustTitleStyle, adjustPostStyle }) => {
           }
         })}
         <ColumnContainer>
-          <div className="notification">
+          <div className={`notification is-${props.swatch || 'primary'}`}>
             <PostPublished frontmatter={props.post.frontmatter} />
           </div>
         </ColumnContainer>
@@ -62,7 +62,7 @@ const BlogSection = ({ props, adjustTitleStyle, adjustPostStyle }) => {
             >
               {props.post.frontmatter.title}
             </h1>
-            <div className="notification">
+            <div className={`notification is-${props.swatch || 'primary'}`}>
               {props.children}
               <PostPublished frontmatter={props.post.frontmatter} />
             </div>

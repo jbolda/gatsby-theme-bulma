@@ -12,7 +12,7 @@ class SimpleBlogPostTemplate extends React.Component {
         hero={this.props.data.post.frontmatter.heroImage}
         location={this.props.location}
       >
-        <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
+        <div className="content has-text-grey-dark" dangerouslySetInnerHTML={{ __html: html }} />
       </SimpleChrome>
     );
   }

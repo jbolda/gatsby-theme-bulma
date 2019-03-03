@@ -9,7 +9,7 @@ class SimpleBlogPostLayout extends React.Component {
     return (
       <SimpleNav site={this.props.site} location={this.props.location}>
         {this.props.children}
-        <section className="section">
+        <section className={`section is-${this.props.swatch || 'primary'}`}>
           <hr />
           <div className="container">
             <p>

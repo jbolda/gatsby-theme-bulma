@@ -1,8 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
 import SimpleBlogPostLayout from "./SimpleBlogPostLayout";
 import HelmetBlock from "./components/HelmetBlock";
-import PostPublished from "./components/PostPublished";
+import BlogSection from "./components/BlogSection";
 import Img from "gatsby-image";
 
 class SimpleChrome extends React.Component {
@@ -43,6 +42,7 @@ class SimpleChrome extends React.Component {
           props={this.props}
           adjustTitleStyle={adjustTitleStyle}
           adjustPostStyle={adjustPostStyle}
+          swatch='secondary'
         />
         <HelmetBlock frontmatter={frontmatter} />
       </SimpleBlogPostLayout>
@@ -51,103 +51,3 @@ class SimpleChrome extends React.Component {
 }
 
 export default SimpleChrome;
-
-SimpleChrome.propTypes = {
-  post: PropTypes.shape({
-    frontmatter: PropTypes.shape({
-      title: PropTypes.string.isRequired
-    }).isRequired
-  }).isRequired,
-  hero: PropTypes.shape({
-    childImageSharp: PropTypes.shape({
-      fluid: PropTypes.object
-    })
-  }),
-  children: PropTypes.any,
-  componentOverride: PropTypes.func,
-  componentBlocks: PropTypes.arrayOf(
-    PropTypes.shape({
-      wrapper: PropTypes.string.isRequired,
-      uniqueKey: PropTypes.string.isRequired,
-      renderComponent: PropTypes.func.isRequired
-    })
-  )
-};
-
-const BlogSection = ({ props, adjustTitleStyle, adjustPostStyle }) => {
-  if (props.componentOverride) {
-    return props.componentOverride();
-  } else if (props.componentBlocks) {
-    return (
-      <section
-        className="section"
-        style={{ paddingBottom: "1rem", ...adjustPostStyle }}
-      >
-        <ColumnContainer>
-          <h1
-            className="title is-1"
-            style={{
-              paddingLeft: 24,
-              paddingRight: 40,
-              ...adjustTitleStyle
-            }}
-          >
-            {props.post.frontmatter.title}
-          </h1>
-        </ColumnContainer>
-        {props.componentBlocks.map(block => {
-          if (block.wrapper === "break-out") {
-            return (
-              <div key={block.uniqueKey} className="container">
-                {block.renderComponent()}
-              </div>
-            );
-          } else {
-            return (
-              <ColumnContainer key={block.uniqueKey}>
-                {block.renderComponent()}
-              </ColumnContainer>
-            );
-          }
-        })}
-        <ColumnContainer>
-          <div className="notification">
-            <PostPublished frontmatter={props.post.frontmatter} />
-          </div>
-        </ColumnContainer>
-      </section>
-    );
-  } else {
-    return (
-      <section
-        className="section"
-        style={{ paddingBottom: "1rem", ...adjustPostStyle }}
-      >
-        <div className="container">
-          <ColumnContainer>
-            <h1
-              className="title is-1"
-              style={{
-                paddingLeft: 24,
-                paddingRight: 40,
-                ...adjustTitleStyle
-              }}
-            >
-              {props.post.frontmatter.title}
-            </h1>
-            <div className="notification">
-              {props.children}
-              <PostPublished frontmatter={props.post.frontmatter} />
-            </div>
-          </ColumnContainer>
-        </div>
-      </section>
-    );
-  }
-};
-
-const ColumnContainer = ({ children }) => (
-  <div className="columns is-centered">
-    <div className="column is-half">{children}</div>
-  </div>
-);

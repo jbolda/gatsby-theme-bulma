@@ -47,7 +47,7 @@ const BlogSection = ({ props, adjustTitleStyle, adjustPostStyle }) => {
   } else {
     return (
       <section
-        className={`section is-${props.swatch || 'secondary'}`}
+        className={`section is-${props.swatch || 'fifthary'}`}
         style={{ paddingBottom: "1rem", ...adjustPostStyle }}
       >
         <div className="container">
@@ -62,7 +62,7 @@ const BlogSection = ({ props, adjustTitleStyle, adjustPostStyle }) => {
             >
               {props.post.frontmatter.title}
             </h1>
-            <div className={`notification is-${props.swatch || 'primary'}`}>
+            <div className={`notification is-${props.swatch || 'secondary'}`}>
               {props.children}
               <PostPublished frontmatter={props.post.frontmatter} />
             </div>

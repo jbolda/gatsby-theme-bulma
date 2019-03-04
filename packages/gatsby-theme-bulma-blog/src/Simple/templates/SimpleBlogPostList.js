@@ -85,7 +85,7 @@ export default SimpleBlogPostList;
 
 export const pageQuery = graphql`
   query SimpleBlogPostListQuery {
-    posts: allBlogPost {
+    posts: allBlogPost(sort: {fields: frontmatter___last, order: DESC}) {
       edges {
         node {
           frontmatter {

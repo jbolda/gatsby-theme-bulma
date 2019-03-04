@@ -114,7 +114,11 @@ export default props => (
     `}
     render={queryData => (
       <section className={`section is-${props.swatch || 'thirdary'} ${props.edge || 'edge--top'}`}>
-        <h1 className="title">Articles</h1>
+        <h1 className="title">
+          <Link to={'/articles/'}>
+            Articles
+          </Link>
+        </h1>
         <h2 className="subtitle">The Most Recent</h2>
         <hr />
         <div className="columns is-multiline">
@@ -124,7 +128,7 @@ export default props => (
             {...props}
           />
         </div>
-        <p>Read More</p>
+        <p><Link to={'/articles/'}>Read More</Link></p>
       </section>
     )}
   />

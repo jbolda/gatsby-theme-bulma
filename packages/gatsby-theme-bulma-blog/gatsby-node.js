@@ -44,6 +44,7 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId }) => {
       title: node.frontmatter.title,
       written: node.frontmatter.written,
       updated: node.frontmatter.updated,
+      last: node.frontmatter.updated || node.frontmatter.written,
       path: node.frontmatter.path,
       category: node.frontmatter.category,
       description: node.frontmatter.description,

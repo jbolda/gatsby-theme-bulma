@@ -118,6 +118,11 @@ exports.createPages = ({ graphql, actions }) => {
           }
         });
 
+        createPage({
+          path: '/articles/',
+          component: require.resolve(`./src/Simple/templates/SimpleBlogPostList.js`)
+        })
+
         return;
       })
     );

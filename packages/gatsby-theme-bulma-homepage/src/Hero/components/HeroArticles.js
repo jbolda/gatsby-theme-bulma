@@ -124,6 +124,7 @@ export default props => (
             {...props}
           />
         </div>
+        <p>Read More</p>
       </section>
     )}
   />

@@ -32,5 +32,8 @@
     "typography": "^0.16.18",
     "typography-theme-lawton": "^0.16.18"
   },
-  "gitHead": "d135a488411a3b981141e97e9d44cb2c59d9cbd2"
+  "gitHead": "d135a488411a3b981141e97e9d44cb2c59d9cbd2",
+  "devDependencies": {
+    "lerna": "^3.8.0"
+  }
 }

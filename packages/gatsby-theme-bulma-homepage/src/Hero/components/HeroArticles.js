@@ -68,7 +68,7 @@ export default props => (
   <StaticQuery
     query={graphql`
       query GatsbyThemeBulmaHomepageHeroArticles {
-        posts: allBlogPost(limit: 6) {
+        posts: allBlogPost(limit: 6, sort: {fields: frontmatter___last, order: DESC}) {
           edges {
             node {
               frontmatter {

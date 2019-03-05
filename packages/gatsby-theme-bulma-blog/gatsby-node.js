@@ -5,6 +5,7 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId }) => {
   const { createNodeField, createNode } = actions;
   const fileNode = getNode(node.parent);
 
+  
   let slug;
   if (node.internal.type === `MarkdownRemark`) {
     try {
@@ -62,7 +63,10 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId }) => {
       },
     }
 
-    createNode(blogNode)
+    const prefixedUnderscore = path.parse(node.fileAbsolutePath).name.startsWith('_');
+    if (!prefixedUnderscore) {
+      createNode(blogNode)
+    }
   }
 };
 

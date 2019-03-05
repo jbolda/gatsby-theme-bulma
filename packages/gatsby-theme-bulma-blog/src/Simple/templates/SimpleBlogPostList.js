@@ -5,7 +5,6 @@ import Img from "gatsby-image";
 
 class SimpleBlogPostList extends React.Component {
   render() {
-    console.log(this.props)
     return (
       <SimpleNav {...this.props}>
         <div className="hero is-small is-thirdary edge--bottom--reverse">

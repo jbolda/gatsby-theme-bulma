@@ -14,23 +14,23 @@
   },
   "author": "jbolda",
   "dependencies": {
-    "gatsby": "^2.1.4",
-    "gatsby-image": "^2.0.29",
-    "gatsby-plugin-manifest": "^2.0.17",
-    "gatsby-plugin-sharp": "^2.0.20",
-    "gatsby-source-filesystem": "2.0.20",
+    "gatsby": "^2.10.5",
+    "gatsby-image": "^2.2.3",
+    "gatsby-plugin-manifest": "^2.2.0",
+    "gatsby-plugin-sharp": "^2.2.1",
+    "gatsby-source-filesystem": "2.1.1",
     "gatsby-theme-bulma-blog": "^2.0.0-alpha.42",
     "gatsby-theme-bulma-core": "^2.0.0-alpha.40",
     "gatsby-theme-bulma-homepage": "^2.0.0-alpha.21",
     "gatsby-theme-bulma-layout": "^2.0.0-alpha.34",
-    "gatsby-transformer-javascript-frontmatter": "^2.0.8",
-    "gatsby-transformer-remark": "^2.2.5",
-    "gatsby-transformer-sharp": "^2.1.13",
+    "gatsby-transformer-javascript-frontmatter": "^2.1.0",
+    "gatsby-transformer-remark": "^2.5.0",
+    "gatsby-transformer-sharp": "^2.2.0",
     "prop-types": "^15.7.2",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "prettier": "^1.15.3"
+    "prettier": "^1.18.2"
   }
 }

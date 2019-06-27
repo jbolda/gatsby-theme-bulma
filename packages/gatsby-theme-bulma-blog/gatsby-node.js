@@ -5,7 +5,6 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId }) => {
   const { createNodeField, createNode } = actions;
   const fileNode = getNode(node.parent);
 
-  
   let slug;
   if (node.internal.type === `MarkdownRemark`) {
     try {
@@ -38,9 +37,11 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId }) => {
   }
 
   if (
-    (node.internal.type === `MarkdownRemark` || node.internal.type === `JavascriptFrontmatter`) &&
-    (fileNode.sourceInstanceName === `blog` || fileNode.sourceInstanceName === `articles`)
-    ) {
+    (node.internal.type === `MarkdownRemark` ||
+      node.internal.type === `JavascriptFrontmatter`) &&
+    (fileNode.sourceInstanceName === `blog` ||
+      fileNode.sourceInstanceName === `articles`)
+  ) {
     const nodeData = {
       title: node.frontmatter.title,
       written: node.frontmatter.written,
@@ -50,7 +51,7 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId }) => {
       category: node.frontmatter.category,
       description: node.frontmatter.description,
       heroImage: node.frontmatter.heroImage
-    }
+    };
 
     const blogNode = {
       id: createNodeId(`${node.id} >>> BlogPost`),
@@ -59,13 +60,15 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId }) => {
       frontmatter: nodeData,
       internal: {
         contentDigest: JSON.stringify(nodeData),
-        type: `BlogPost`,
-      },
-    }
+        type: `BlogPost`
+      }
+    };
 
-    const prefixedUnderscore = path.parse(node.fileAbsolutePath).name.startsWith('_');
+    const prefixedUnderscore = path
+      .parse(node.fileAbsolutePath)
+      .name.startsWith("_");
     if (!prefixedUnderscore) {
-      createNode(blogNode)
+      createNode(blogNode);
     }
   }
 };
@@ -124,37 +127,14 @@ exports.createPages = ({ graphql, actions }) => {
         });
 
         createPage({
-          path: '/articles/',
-          component: require.resolve(`./src/Simple/templates/SimpleBlogPostList.js`)
-        })
+          path: "/articles/",
+          component: require.resolve(
+            `./src/Simple/templates/SimpleBlogPostList.js`
+          )
+        });
 
         return;
       })
     );
-  });
-};
-
-/**
- * When shipping NPM modules, they typically need to be either
- * pre-compiled or the user needs to add bundler config to process the
- * files. Gatsby lets us ship the bundler config *with* the theme, so
- * we never need a lib-side build step.  Since we dont pre-compile the
- * theme, this is how we let webpack know how to process files.
- * snipped from gatsby-theme-example at
- * https://github.com/ChristopherBiscardi/gatsby-theme-examples/blob/master/themes/gatsby-theme-blog/gatsby-node.js
- */
-exports.onCreateWebpackConfig = ({ stage, loaders, plugins, actions }) => {
-  const debug = Debug("gatsby-theme-bulma:onCreateWebpackConfig");
-  debug("ensuring Webpack will compile theme code");
-  actions.setWebpackConfig({
-    module: {
-      rules: [
-        {
-          test: /\.js$/,
-          include: path.dirname(require.resolve("gatsby-theme-bulma-blog")),
-          use: [loaders.js()]
-        }
-      ]
-    }
   });
 };
